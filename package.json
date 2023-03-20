@@ -1,0 +1,24 @@
+{
+  "name": "solid-elements",
+  "version": "0.0.1",
+  "description": "SolidJS components",
+  "author": "Anton Sukhovatkin",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "clean": "turbo run clean && rm -rf node_modules"
+  },
+  "devDependencies": {
+    "solid-js": "^1.6.15",
+    "turbo": "1.2.4",
+    "primeicons": "^6.0.1",
+    "@babel/core": "^7.21.3",
+    "@babel/preset-env": "^7.20.2",
+    "typescript": "^5.0.2"
+  }
+}

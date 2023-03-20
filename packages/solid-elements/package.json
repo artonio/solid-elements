@@ -1,0 +1,41 @@
+{
+  "name": "@solid-ui/solid-elements",
+  "version": "0.0.1",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "files": [
+    "dist"
+  ],
+  "author": "Anton Sukhovatkin",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "babel-preset-solid": "^1.6.13",
+    "solid-js": "^1.6.15",
+    "solid-transition-group": "^0.1.1",
+    "primeicons": "^6.0.1",
+    "sass": "^1.58.3"
+  },
+  "devDependencies": {
+    "vite": "^4.1.1",
+    "vite-plugin-solid": "^2.5.0",
+    "vite-plugin-dts": "1.1.1"
+  },
+  "peerDependencies": {
+    "solid-js": "^1.6.15",
+    "primeicons": "^6.0.1"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "solid-elements-docs",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "Anton Sukhovatkin",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "@solid-ui/solid-elements": "0.0.1"
+  }
+}

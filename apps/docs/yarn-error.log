@@ -1,0 +1,49 @@
+Arguments: 
+  /home/artonio/.nvm/versions/node/v16.14.0/bin/node /home/artonio/.nvm/versions/node/v16.14.0/bin/yarn install
+
+PATH: 
+  /home/artonio/.nvm/versions/node/v16.14.0/bin:/home/artonio/.cargo/bin:/home/artonio/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  16.14.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/@solid-ui%2fsolid-elements: Not found
+      at Request.params.callback [as _callback] (/home/artonio/.nvm/versions/node/v16.14.0/lib/node_modules/yarn/lib/cli.js:66145:18)
+      at Request.self.callback (/home/artonio/.nvm/versions/node/v16.14.0/lib/node_modules/yarn/lib/cli.js:140890:22)
+      at Request.emit (node:events:520:28)
+      at Request.<anonymous> (/home/artonio/.nvm/versions/node/v16.14.0/lib/node_modules/yarn/lib/cli.js:141862:10)
+      at Request.emit (node:events:520:28)
+      at IncomingMessage.<anonymous> (/home/artonio/.nvm/versions/node/v16.14.0/lib/node_modules/yarn/lib/cli.js:141784:12)
+      at Object.onceWrapper (node:events:639:28)
+      at IncomingMessage.emit (node:events:532:35)
+      at endReadableNT (node:internal/streams/readable:1346:12)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+npm manifest: 
+  {
+    "name": "solid-elements-docs",
+    "version": "0.0.1",
+    "main": "index.js",
+    "author": "Anton Sukhovatkin",
+    "license": "MIT",
+    "private": true,
+    "dependencies": {
+      "@solid-ui/solid-elements": "0.0.1",
+      "solid-app-router": "0.2.1",
+      "solid-js": "1.4.0",
+      "solid-transition-group": "0.0.10"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
