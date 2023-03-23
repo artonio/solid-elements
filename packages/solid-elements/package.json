@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "main": "dist/solid-ui-solid-elements.cjs.js",
   "module": "dist/solid-ui-solid-elements.esm.js",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/solid-ui-solid-elements.cjs.d.ts",
   "scripts": {
     "start": "vite",
     "dev": "vite",
