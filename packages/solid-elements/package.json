@@ -1,15 +1,9 @@
 {
   "name": "@solid-ui/solid-elements",
   "version": "0.0.1",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
-    }
-  },
+  "main": "dist/solid-ui-solid-elements.cjs.js",
+  "module": "dist/solid-ui-solid-elements.esm.js",
+  "types": "./dist/solid-ui-solid-elements.cjs.d.ts",
   "scripts": {
     "start": "vite",
     "dev": "vite",
