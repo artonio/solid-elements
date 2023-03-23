@@ -10,9 +10,9 @@
     "apps/*"
   ],
   "scripts": {
+    "start": " yarn --cwd apps/docs/ start",
     "build": "turbo run build",
     "clean": "turbo run clean && rm -rf node_modules",
-    "watch": "watch 'yarn run build' packages/solid-elements/src/components/",
     "postinstall": "preconstruct dev"
   },
   "preconstruct": {
