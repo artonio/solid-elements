@@ -11,7 +11,11 @@
   ],
   "scripts": {
     "build": "turbo run build",
-    "clean": "turbo run clean && rm -rf node_modules"
+    "clean": "turbo run clean && rm -rf node_modules",
+    "watch": "watch 'yarn run build' packages/solid-elements/src/components/"
+  },
+  "preconstruct": {
+    "packages": ["packages/*"]
   },
   "devDependencies": {
     "solid-js": "^1.6.15",
@@ -19,6 +23,9 @@
     "primeicons": "^6.0.1",
     "@babel/core": "^7.21.3",
     "@babel/preset-env": "^7.20.2",
-    "typescript": "^5.0.2"
+    "@babel/preset-typescript": "^7.21.0",
+    "babel-preset-solid": "^1.6.13",
+    "typescript": "^5.0.2",
+    "@preconstruct/cli": "^2.3.0"
   }
 }

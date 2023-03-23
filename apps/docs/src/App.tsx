@@ -1,6 +1,7 @@
 import type { Component } from 'solid-js';
 import { Paginator, Table } from '@solid-ui/solid-elements';
 import { createSignal } from 'solid-js';
+// import { Table } from '@solid-ui/solid-elements/src';
 
 const App: Component = () => {
 	const [first, setFirst] = createSignal(0);
