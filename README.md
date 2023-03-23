@@ -1,6 +1,6 @@
 # Solid Elements
 
-Solid Elements is a SolidJS component library, built using Yarn Workspaces. This library provides a collection of
+Solid Elements is a [SolidJS](https://www.solidjs.com/) component library, built using Yarn Workspaces. This library provides a collection of
 reusable UI components for your SolidJS applications. The components are located in the packages/solid-elements
 directory, while the documentation and examples can be found in the app/docs directory.
 
