@@ -79,7 +79,7 @@ export const Menu: Component = () => {
 		}
 
 		return (
-			<>
+			<div>
 				<For each={menuitem.children}>
 					{(item, index) => {
 						const submenuKey = `${menuitemIndex}_${index}`;
@@ -90,7 +90,7 @@ export const Menu: Component = () => {
 						)
 					}}
 				</For>
-			</>
+			</div>
 		)
 	}
 

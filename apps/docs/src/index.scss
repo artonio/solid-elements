@@ -4,6 +4,32 @@ $color_1: #343a40;
 $color_2: #495057;
 $color_3: #4338CA;
 
+body {
+  background-color: #eff3f8;
+}
+
+.main-container {
+  display: flex;
+  max-width: 1536px;
+
+  .main-docs {
+    flex: 1;
+    padding: 0 1rem;
+    margin-left: 250px;
+  }
+
+  .context-menu {
+    margin-left: auto;
+  }
+}
+
+@media (min-width: 1536px) {
+  .main-container {
+    max-width: 1536px;
+  }
+}
+
+
 .s-datatable {
   border-spacing: 0;
   width: 100%;

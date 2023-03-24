@@ -288,7 +288,11 @@ const App: Component = () => {
 
 	return (
 		<>
-			<Menu />
+			<div class="main-container">
+				<Menu />
+				<div class="main-docs">Docs</div>
+				<div class="context-menu">Menu</div>
+			</div>
 			{/*<Paginator*/}
 			{/*    first={first()}*/}
 			{/*    rows={rows()}*/}
