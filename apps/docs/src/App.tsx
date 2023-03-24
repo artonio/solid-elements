@@ -1,6 +1,7 @@
 import type { Component } from 'solid-js';
 import { Paginator, Table } from '@solid-ui/solid-elements';
 import { createSignal } from 'solid-js';
+import { Menu } from '@/components/Menu';
 
 const App: Component = () => {
 	const [first, setFirst] = createSignal(0);
@@ -287,29 +288,30 @@ const App: Component = () => {
 
 	return (
 		<>
+			<Menu />
 			{/*<Paginator*/}
 			{/*    first={first()}*/}
 			{/*    rows={rows()}*/}
 			{/*    totalRecords={100}*/}
 			{/*    onPageChange={onPageChange}*/}
 			{/*/>*/}
-			<Table
-				data={tableData}
-				columns={columns}
-				showGridlines
-				sortMode="single"
-				size="medium"
-				strippedRows
-				paginator
-				rows={8}
-				totalRecords={tableData.length}
-				globalFilter
-				selectionMode="single"
-				selection={selectedRow()}
-				onSelectionChange={(value: any) => {
-					selectionChanged(value)
-				}}>
-			</Table>
+			{/*<Table*/}
+			{/*	data={tableData}*/}
+			{/*	columns={columns}*/}
+			{/*	showGridlines*/}
+			{/*	sortMode="single"*/}
+			{/*	size="medium"*/}
+			{/*	strippedRows*/}
+			{/*	paginator*/}
+			{/*	rows={8}*/}
+			{/*	totalRecords={tableData.length}*/}
+			{/*	globalFilter*/}
+			{/*	selectionMode="single"*/}
+			{/*	selection={selectedRow()}*/}
+			{/*	onSelectionChange={(value: any) => {*/}
+			{/*		selectionChanged(value)*/}
+			{/*	}}>*/}
+			{/*</Table>*/}
 		</>
 	)
 }
