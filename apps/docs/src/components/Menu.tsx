@@ -1,5 +1,5 @@
 import './Menu.scss';
-import { Accessor, createContext, For } from 'solid-js';
+import { Accessor, For } from 'solid-js';
 import type { Component } from 'solid-js';
 import { A } from "@solidjs/router"
 
@@ -17,21 +17,13 @@ export const Menu: Component<IMenuProps> = (props: IMenuProps) => {
 			children: [
 				{
 					label: 'Input',
-					children: [
-						{
-							label: 'Documentation',
-							to: '/docs/input'
-						}
-					]
+					to: 'input'
+
 				},
 				{
 					label: 'Dropdown',
-					children: [
-						{
-							label: 'Documentation',
-							to: '/docs/dropdown'
-						}
-					]
+					to: 'dropdown'
+
 				}
 			]
 		},
@@ -40,7 +32,7 @@ export const Menu: Component<IMenuProps> = (props: IMenuProps) => {
 			children: [
 				{
 					label: 'Table',
-					to: 'docs/table',
+					to: 'table',
 					children: [
 						{
 							label: 'Documentation',
@@ -54,12 +46,7 @@ export const Menu: Component<IMenuProps> = (props: IMenuProps) => {
 				},
 				{
 					label: 'Paginator',
-					children: [
-						{
-							label: 'Documentation',
-							to: '/docs/paginator'
-						}
-					]
+					to: 'paginator'
 				}
 			]
 		}

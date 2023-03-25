@@ -1,15 +1,8 @@
 import './../App.scss';
-import { Table } from '@solid-ui/solid-elements/src';
 import { Menu } from '@/components/Menu';
-import { CodeHighlighter } from '@/components/CodeHighlighter';
 import { Outlet } from '@solidjs/router';
-interface IPageWrapperProps {
 
-}
-
-const PageWrapper = (props: IPageWrapperProps) => {
-
-	let articleRef!: HTMLDivElement;
+const PageWrapper = () => {
 
 	const onMenuItemClick = (path: string) => {
 		console.log(path)

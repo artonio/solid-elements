@@ -42,6 +42,7 @@
       a {
         font-family: "DejaVu Sans Mono, monospace", sans-serif;
         letter-spacing: 0.5px;
+        color: black;
         font-size: 1rem;
         cursor: pointer;
         display: inline-flex;
@@ -61,4 +62,10 @@
       }
     }
   }
+}
+
+.active {
+  background-color: #08b37d15;
+  color: #08b37d !important;
+  font-weight: bolder;
 }
