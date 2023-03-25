@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@solid-ui/solid-elements": "0.0.1",
+    "@solidjs/router": "^0.8.2",
     "markdown-it": "^13.0.1",
     "prismjs": "^1.29.0"
   },

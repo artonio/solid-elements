@@ -1,6 +1,15 @@
 import './Menu.scss';
-import { Accessor, Component, For } from 'solid-js';
-export const Menu: Component = () => {
+import { Accessor, createContext, For } from 'solid-js';
+import type { Component } from 'solid-js';
+import { A } from "@solidjs/router"
+
+export interface IMenuProps {
+	onMenuClick: (path: string) => void;
+}
+
+export const Menu: Component<IMenuProps> = (props: IMenuProps) => {
+
+	const { onMenuClick } = props;
 
 	const menuModel = [
 		{
@@ -31,6 +40,7 @@ export const Menu: Component = () => {
 			children: [
 				{
 					label: 'Table',
+					to: 'docs/table',
 					children: [
 						{
 							label: 'Documentation',
@@ -83,9 +93,11 @@ export const Menu: Component = () => {
 				<For each={menuitem.children}>
 					{(item, index) => {
 						const submenuKey = `${menuitemIndex}_${index}`;
+						console.log(item)
 						return (
 							<>
-								<a>{item.label}</a>
+								<A href={item.to || ''} onClick={[onMenuClick, item.to || 'undefined']}>{item.label}</A>
+								{/*<a>{item.label}</a>*/}
 							</>
 						)
 					}}
