@@ -101,12 +101,12 @@ const App: Component = () => {
 	return (
 		<>
 			<div class="app-main-container">
-				<div class="app-header item-margin">
+				<div class="app-header">
 					<span>Solid Elements</span>
 				</div>
-				<div class="app-content-container item-margin">
+				<div class="app-content-container">
 
-					<div class="app-main-content item-margin">
+					<div class="app-main-content">
 						<div ref={articleRef} id="article">
 							<h2>Import via module</h2>
 							<CodeHighlighter language="javascript">
@@ -137,14 +137,14 @@ const App: Component = () => {
 
 						</div>
 					</div>
-					<div class="app-left-sidebar item-margin">
+					<div class="app-left-sidebar">
 						<Menu/>
 					</div>
 					<div class="app-right-sidebar">
 						MENU
 					</div>
 				</div>
-				<div class="app-footer item-margin">
+				<div class="app-footer">
 					<span>v1.0.0</span>
 				</div>
 			</div>

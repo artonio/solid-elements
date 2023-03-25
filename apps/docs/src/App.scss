@@ -12,7 +12,8 @@
   .app-header {
     width: 100%;
     min-height: 56px;
-    box-shadow: 0px 10px 5px -3px rgba(0,0,0,0.1);
+    box-shadow: 0px 3px 11px 4px rgba(0,0,0,0.1);
+    margin-bottom: 10px;
 
     span {
       line-height: 56px;
@@ -46,7 +47,7 @@
       flex-direction: column;
       flex: 1;
       order: 1;
-      box-shadow: 0px 0px 7px 2px rgba(0,0,0,0.1);
+      //box-shadow: 0px 0px 7px 2px rgba(0,0,0,0.1);
     }
 
     .app-right-sidebar {
@@ -57,8 +58,6 @@
       order: 3;
       //box-shadow: 0px 0px 7px 2px rgba(0,0,0,0.1);
       padding: 20px;
-      margin-top: 5px;
-      margin-bottom: 5px;
     }
 
   }
