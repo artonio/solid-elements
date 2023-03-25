@@ -210,10 +210,13 @@ export const Table = (input: ITableProps) => {
 			</table>
 			</div>
 		<div>
-			<Paginator first={firstState()}
-					   rows={rowsState()}
-					   totalRecords={props.data.length}
-					   onPageChange={onPageChange} />
+			<Show when={props.paginator} keyed={true}>
+				<Paginator first={firstState()}
+						   rows={rowsState()}
+						   totalRecords={props.data.length}
+						   onPageChange={onPageChange} />
+			</Show>
+
 		</div>
 		  </>
   );
