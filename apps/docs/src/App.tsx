@@ -1,9 +1,13 @@
 import type { Component } from 'solid-js';
 import { Paginator, Table } from '@solid-ui/solid-elements';
-import { createSignal } from 'solid-js';
+import { createSignal, onCleanup, onMount } from 'solid-js';
 import { Menu } from '@/components/Menu';
+import './App.scss';
 
 const App: Component = () => {
+
+	let articleRef!: HTMLDivElement;
+
 	const [first, setFirst] = createSignal(0);
 	const [rows, setRows] = createSignal(5);
 	const [selectedRow, setSelectedRow] = createSignal<any>(null);
@@ -276,6 +280,21 @@ const App: Component = () => {
 		}
 	];
 
+	const onResize = () => {
+		console.log(articleRef)
+		articleRef.style.height = window.innerHeight - 56 - 30 - 130 + 'px';
+		console.log('resize height: ', window.innerHeight, ' width: ', window.innerWidth)
+	};
+
+	onMount(() => {
+		articleRef.style.height = window.innerHeight - 56 - 30 - 130+ 'px';
+		window.addEventListener('resize', onResize);
+	});
+
+	onCleanup(() => {
+		window.removeEventListener('resize', onResize);
+	});
+
 	const onPageChange = (event: any) => {
 		setFirst(event.first);
 		setRows(event.rows)
@@ -288,10 +307,133 @@ const App: Component = () => {
 
 	return (
 		<>
-			<div class="main-container">
-				<Menu />
-				<div class="main-docs">Docs</div>
-				<div class="context-menu">Menu</div>
+			<div class="app-main-container">
+				<div class="app-header item-margin">
+					<span>Solid Elements</span>
+				</div>
+				<div class="app-content-container item-margin">
+
+					<div class="app-main-content item-margin">
+						<div ref={articleRef} id="article">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nunc, ultrices quis
+							ipsum vitae, bibendum suscipit urna. Suspendisse molestie quam quis porta posuere. Nullam ut
+							libero ultrices, ultricies nisl ac, rutrum tortor. Mauris pharetra convallis nisi ac
+							feugiat. Nullam at scelerisque nunc. Fusce ullamcorper bibendum ultricies. Pellentesque
+							risus mauris, viverra eget ligula et, efficitur rutrum erat.
+
+							Ut pharetra ac nunc vitae molestie. Cras bibendum turpis odio, at vulputate nisl tempor ut.
+							Vivamus eu diam arcu. Aenean pretium, nisi at interdum auctor, massa augue lacinia arcu, at
+							fermentum sapien ante sit amet lacus. Cras placerat sollicitudin aliquam. Quisque eget ante
+							nec dolor sagittis pulvinar in eu arcu. Mauris et laoreet arcu, vel laoreet nulla. In erat
+							velit, ultrices sed elementum eget, molestie sit amet est. Integer vitae vehicula metus,
+							interdum tempor mi. Vestibulum id elementum massa. Nunc ultricies efficitur pretium. Cras
+							ante augue, blandit ac massa nec, sodales gravida ligula. Ut quis lacus ante. Nullam non
+							nibh turpis. Sed nec consequat nulla, vestibulum molestie augue. Integer ut lacinia arcu,
+							non elementum leo.
+
+							Vivamus eget risus quis leo auctor egestas. Duis eget urna sed mi consequat cursus. Duis
+							pulvinar leo risus, ultricies sagittis ante aliquet quis. Duis nec diam semper nunc
+							consequat iaculis. Nulla efficitur tristique massa, quis interdum augue vehicula id.
+							Maecenas tempus sodales eros id congue. Integer ac facilisis elit. Mauris ut euismod ex.
+
+							Phasellus quis libero urna. Suspendisse et vehicula mi, at tempor nunc. Donec egestas
+							hendrerit massa eu gravida. Phasellus ut urna sed lorem efficitur cursus eu eget elit.
+							Mauris efficitur nisl eu odio feugiat, a auctor nunc efficitur. Quisque accumsan, diam vel
+							porta tristique, diam tellus vestibulum libero, sed elementum leo mauris eu eros. Donec
+							accumsan accumsan nisl id scelerisque. Interdum et malesuada fames ac ante ipsum primis in
+							faucibus. Aenean urna tortor, cursus vel arcu ut, consequat feugiat justo. Sed faucibus ut
+							ipsum id ultricies. Fusce id enim lorem. Etiam sagittis enim et fringilla aliquam.
+
+							Donec elit lacus, posuere vitae dictum a, gravida in elit. Proin at quam sapien. Nulla
+							facilisi. Sed tortor diam, eleifend quis ante aliquet, porttitor bibendum diam. Nunc velit
+							magna, auctor consectetur ligula non, varius pharetra tellus. Pellentesque blandit purus
+							elementum malesuada rhoncus. Fusce at ornare quam. Proin tempor suscipit mauris, ultricies
+							volutpat leo iaculis eget. Morbi pretium dignissim cursus. Ut pellentesque, nisi nec varius
+							efficitur, sem lectus hendrerit dui, at ullamcorper purus lacus eu lectus. Fusce aliquet eu
+							mauris eget tempus. Proin nec mauris metus. Mauris pretium turpis a felis sodales aliquet.
+							Cras tincidunt, felis et dictum feugiat, nibh elit tempor nibh, vel imperdiet leo diam ac
+							odio. Morbi malesuada arcu eget auctor aliquet.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nunc, ultrices quis
+							ipsum vitae, bibendum suscipit urna. Suspendisse molestie quam quis porta posuere. Nullam ut
+							libero ultrices, ultricies nisl ac, rutrum tortor. Mauris pharetra convallis nisi ac
+							feugiat. Nullam at scelerisque nunc. Fusce ullamcorper bibendum ultricies. Pellentesque
+							risus mauris, viverra eget ligula et, efficitur rutrum erat.
+
+							Ut pharetra ac nunc vitae molestie. Cras bibendum turpis odio, at vulputate nisl tempor ut.
+							Vivamus eu diam arcu. Aenean pretium, nisi at interdum auctor, massa augue lacinia arcu, at
+							fermentum sapien ante sit amet lacus. Cras placerat sollicitudin aliquam. Quisque eget ante
+							nec dolor sagittis pulvinar in eu arcu. Mauris et laoreet arcu, vel laoreet nulla. In erat
+							velit, ultrices sed elementum eget, molestie sit amet est. Integer vitae vehicula metus,
+							interdum tempor mi. Vestibulum id elementum massa. Nunc ultricies efficitur pretium. Cras
+							ante augue, blandit ac massa nec, sodales gravida ligula. Ut quis lacus ante. Nullam non
+							nibh turpis. Sed nec consequat nulla, vestibulum molestie augue. Integer ut lacinia arcu,
+							non elementum leo.
+
+							Vivamus eget risus quis leo auctor egestas. Duis eget urna sed mi consequat cursus. Duis
+							pulvinar leo risus, ultricies sagittis ante aliquet quis. Duis nec diam semper nunc
+							consequat iaculis. Nulla efficitur tristique massa, quis interdum augue vehicula id.
+							Maecenas tempus sodales eros id congue. Integer ac facilisis elit. Mauris ut euismod ex.
+
+							Phasellus quis libero urna. Suspendisse et vehicula mi, at tempor nunc. Donec egestas
+							hendrerit massa eu gravida. Phasellus ut urna sed lorem efficitur cursus eu eget elit.
+							Mauris efficitur nisl eu odio feugiat, a auctor nunc efficitur. Quisque accumsan, diam vel
+							porta tristique, diam tellus vestibulum libero, sed elementum leo mauris eu eros. Donec
+							accumsan accumsan nisl id scelerisque. Interdum et malesuada fames ac ante ipsum primis in
+							faucibus. Aenean urna tortor, cursus vel arcu ut, consequat feugiat justo. Sed faucibus ut
+							ipsum id ultricies. Fusce id enim lorem. Etiam sagittis enim et fringilla aliquam.
+
+							Donec elit lacus, posuere vitae dictum a, gravida in elit. Proin at quam sapien. Nulla
+							facilisi. Sed tortor diam, eleifend quis ante aliquet, porttitor bibendum diam. Nunc velit
+							magna, auctor consectetur ligula non, varius pharetra tellus. Pellentesque blandit purus
+							elementum malesuada rhoncus. Fusce at ornare quam. Proin tempor suscipit mauris, ultricies
+							volutpat leo iaculis eget. Morbi pretium dignissim cursus. Ut pellentesque, nisi nec varius
+							efficitur, sem lectus hendrerit dui, at ullamcorper purus lacus eu lectus. Fusce aliquet eu
+							mauris eget tempus. Proin nec mauris metus. Mauris pretium turpis a felis sodales aliquet.
+							Cras tincidunt, felis et dictum feugiat, nibh elit tempor nibh, vel imperdiet leo diam ac
+							odio. Morbi malesuada arcu eget auctor aliquet.
+
+Donec elit lacus, posuere vitae dictum a, gravida in elit. Proin at quam sapien. Nulla
+							facilisi. Sed tortor diam, eleifend quis ante aliquet, porttitor bibendum diam. Nunc velit
+							magna, auctor consectetur ligula non, varius pharetra tellus. Pellentesque blandit purus
+							elementum malesuada rhoncus. Fusce at ornare quam. Proin tempor suscipit mauris, ultricies
+							volutpat leo iaculis eget. Morbi pretium dignissim cursus. Ut pellentesque, nisi nec varius
+							efficitur, sem lectus hendrerit dui, at ullamcorper purus lacus eu lectus. Fusce aliquet eu
+							mauris eget tempus. Proin nec mauris metus. Mauris pretium turpis a felis sodales aliquet.
+							Cras tincidunt, felis et dictum feugiat, nibh elit tempor nibh, vel imperdiet leo diam ac
+							odio. Morbi malesuada arcu eget auctor aliquet.
+
+Donec elit lacus, posuere vitae dictum a, gravida in elit. Proin at quam sapien. Nulla
+							facilisi. Sed tortor diam, eleifend quis ante aliquet, porttitor bibendum diam. Nunc velit
+							magna, auctor consectetur ligula non, varius pharetra tellus. Pellentesque blandit purus
+							elementum malesuada rhoncus. Fusce at ornare quam. Proin tempor suscipit mauris, ultricies
+							volutpat leo iaculis eget. Morbi pretium dignissim cursus. Ut pellentesque, nisi nec varius
+							efficitur, sem lectus hendrerit dui, at ullamcorper purus lacus eu lectus. Fusce aliquet eu
+							mauris eget tempus. Proin nec mauris metus. Mauris pretium turpis a felis sodales aliquet.
+							Cras tincidunt, felis et dictum feugiat, nibh elit tempor nibh, vel imperdiet leo diam ac
+							odio. Morbi malesuada arcu eget auctor aliquet.
+
+Donec elit lacus, posuere vitae dictum a, gravida in elit. Proin at quam sapien. Nulla
+							facilisi. Sed tortor diam, eleifend quis ante aliquet, porttitor bibendum diam. Nunc velit
+							magna, auctor consectetur ligula non, varius pharetra tellus. Pellentesque blandit purus
+							elementum malesuada rhoncus. Fusce at ornare quam. Proin tempor suscipit mauris, ultricies
+							volutpat leo iaculis eget. Morbi pretium dignissim cursus. Ut pellentesque, nisi nec varius
+							efficitur, sem lectus hendrerit dui, at ullamcorper purus lacus eu lectus. Fusce aliquet eu
+							mauris eget tempus. Proin nec mauris metus. Mauris pretium turpis a felis sodales aliquet.
+							Cras tincidunt, felis et dictum feugiat, nibh elit tempor nibh, vel imperdiet leo diam ac
+							odio. Morbi malesuada arcu eget auctor aliquet.
+
+
+						</div>
+					</div>
+					<div class="app-left-sidebar item-margin">
+						<Menu/>
+					</div>
+					<div class="app-right-sidebar item-margin"></div>
+				</div>
+				<div class="app-footer item-margin">
+					<span>v1.0.0</span>
+				</div>
 			</div>
 			{/*<Paginator*/}
 			{/*    first={first()}*/}
