@@ -1,8 +1,6 @@
 import '../../App.scss';
-import {createSignal, onCleanup, onMount, Suspense} from 'solid-js';
-import { Table } from '@solid-ui/solid-elements/src';
-import { CodeHighlighter } from '@/components/CodeHighlighter';
-import basicTable from "../basic.data.json";
+import {onCleanup, onMount} from 'solid-js';
+import {CodeHighlighter} from '@/components/CodeHighlighter';
 import {BasicTable} from "@/pages/Table/BasicTable";
 
 
@@ -45,15 +43,15 @@ export const TablePage = () => {
 		</div>
 		<div class="app-right-sidebar">
 						<ul>
-							<li><a href="apps/docs/src/pages#import">Import</a></li>
-							<li><a href="apps/docs/src/pages#basic">Basic</a></li>
-							<li><a href="apps/docs/src/pages#article">Size</a></li>
-							<li><a href="apps/docs/src/pages#article">Grid Lines</a></li>
-							<li><a href="apps/docs/src/pages#article">Striped row</a></li>
-							<li><a href="apps/docs/src/pages#article">Paginator</a></li>
-							<li><a href="apps/docs/src/pages#article">Sorting</a></li>
-							<li><a href="apps/docs/src/pages#article">Filtering</a></li>
-							<li><a href="apps/docs/src/pages#article">Row Selection</a></li>
+							<li><a href="#import">Import</a></li>
+							<li><a href="#basic">Basic</a></li>
+							<li><a href="#article">Size</a></li>
+							<li><a href="#article">Grid Lines</a></li>
+							<li><a href="#article">Striped row</a></li>
+							<li><a href="#article">Paginator</a></li>
+							<li><a href="#article">Sorting</a></li>
+							<li><a href="#article">Filtering</a></li>
+							<li><a href="#article">Row Selection</a></li>
 						</ul>
 		</div>
 		</>
