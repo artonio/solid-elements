@@ -13,6 +13,15 @@ export const ButtonPage: Component<any> = () => {
 	const buttonSourceCode = `
 		<Button label="Submit" />
 	`;
+
+	const buttonLinkSourceCode = `
+		<Button label="Submit" link/>
+	`
+
+	const buttonDisabledSourceCode = `
+		<Button label="Submit" disabled/>
+	`
+
 	const onResize = () => {
 		console.log(articleRef)
 		articleRef.style.height = window.innerHeight - 56 - 30 - 130 + 'px';
@@ -41,16 +50,27 @@ export const ButtonPage: Component<any> = () => {
 					<CodeHighlighter language="tsx" id={uuidv4()}>
 						{buttonSourceCode}
 					</CodeHighlighter>
+					<h2 id="link">Link</h2>
+					<div class="s-card">
+						<Button label="Submit" link/>
+					</div>
+					<CodeHighlighter language="tsx" id={uuidv4()}>
+						{buttonLinkSourceCode}
+					</CodeHighlighter>
+					<h2 id="disabled">Disabled</h2>
+					<div class="s-card">
+						<Button label="Submit" disabled/>
+					</div>
+					<CodeHighlighter language="tsx" id={uuidv4()}>
+						{buttonDisabledSourceCode}
+					</CodeHighlighter>
 				</div>
 			</div>
 			<div class="app-right-sidebar">
 				<ul>
 					<li><a href="#import">Import</a></li>
-					<li><a href="#basic">Basic</a></li>
-					<li><a href="#article">Multiple</a></li>
-					<li><a href="#article">Template</a></li>
-					<li><a href="#article">Invalid</a></li>
-					<li><a href="#article">Disabled</a></li>
+					<li><a href="#link">Link</a></li>
+					<li><a href="#disabled">Disabled</a></li>
 				</ul>
 			</div>
 		</>

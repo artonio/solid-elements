@@ -3,6 +3,12 @@
 $color_1: #343a40;
 $color_2: #495057;
 $color_3: #4338CA;
+$btn_color: #08b37d;
+
+.s-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
 
 .s-button {
   cursor: pointer;
@@ -44,6 +50,18 @@ $color_3: #4338CA;
         border-radius: 0.25rem;
         transition: all 0.2s ease-in-out;
     }
+}
+.s-button-link {
+  color: $btn_color;
+  background: transparent;
+  border: transparent;
+
+  &:hover {
+    background-color: transparent;
+    text-decoration: underline;
+    color: $btn_color;
+    border: 0;
+  }
 }
 
 button {
