@@ -8,6 +8,25 @@ $color_3: #4338CA;
     height: 100%;
 }
 
+::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: #08b37d45;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #08b37d70;
+}
+
 html {
   height: 100%;
 }
