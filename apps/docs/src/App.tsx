@@ -3,7 +3,7 @@ import { createSignal, onCleanup, onMount } from 'solid-js';
 import './App.scss';
 import { Route, Router, Routes } from '@solidjs/router';
 import PageWrapper from '@/components/PageWrapper';
-import { TablePage } from '@/pages/Table.page';
+import { TablePage } from '@/pages/Table/Table.page';
 
 const App: Component = () => {
 
