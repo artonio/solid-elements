@@ -5,7 +5,6 @@ import { Route, Router, Routes } from '@solidjs/router';
 import PageWrapper from '@/components/PageWrapper';
 import { TablePage } from '@/pages/Table.page';
 
-
 const App: Component = () => {
 
 	const [first, setFirst] = createSignal(0);

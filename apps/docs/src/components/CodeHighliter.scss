@@ -1,0 +1,15 @@
+.toolbar-btn {
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  line-height: 2rem;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #6c757d;
+  margin-top: 5px;
+  margin-right: 5px;
+
+  &:hover {
+    background-color: #e9ecef;
+  }
+}

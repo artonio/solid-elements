@@ -1,16 +1,16 @@
 import { fileURLToPath } from "url";
 import { defineConfig } from "vite";
-// import prismjs from "vite-plugin-prismjs";
+import prismjs from "vite-plugin-prismjs";
 import solidPlugin from "vite-plugin-solid";
 
 export default defineConfig({
   plugins: [
     solidPlugin(),
-    // prismjs({
-    //   languages: ["bash", "js", "tsx", "html", "css"],
-    //   plugins: ["copy-to-clipboard", "line-highlight"],
-    //   css: false,
-    // }),
+    prismjs({
+      languages: ["bash", "js", "tsx", "html", "css"],
+      plugins: ["copy-to-clipboard", "line-highlight", "toolbar"],
+      css: false,
+    }),
   ],
   resolve: {
     alias: {

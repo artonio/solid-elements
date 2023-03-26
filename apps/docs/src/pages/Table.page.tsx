@@ -1,10 +1,15 @@
 import './../App.scss';
-import { onCleanup, onMount } from 'solid-js';
+import {createSignal, onCleanup, onMount, Suspense} from 'solid-js';
 import { Table } from '@solid-ui/solid-elements/src';
 import { CodeHighlighter } from '@/components/CodeHighlighter';
+import basicTable from "./basic.data.json";
+import { v4 as uuidv4 } from 'uuid';
+
 
 export const TablePage = () => {
 	let articleRef!: HTMLDivElement;
+	const [isToggled, setIsToggled] = createSignal(true)
+
 
 	const onResize = () => {
 		console.log(articleRef)
@@ -21,33 +26,7 @@ export const TablePage = () => {
 		window.removeEventListener('resize', onResize);
 	});
 
-	const tableData = [
-		{
-			"firstName": "Savage",
-			"lastName": "Norris",
-			"age": 5
-		},
-		{
-			"firstName": "Parker",
-			"lastName": "Bryant",
-			"age": 10
-		},
-		{
-			"firstName": "Asra",
-			"lastName": "Langley",
-			"age": 5
-		},
-		{
-			"firstName": "Gomez",
-			"lastName": "Mccray",
-			"age": 0
-		},
-		{
-			"firstName": "Nico",
-			"lastName": "Nolan",
-			"age": 6
-		},
-	];
+	const tableData = basicTable.data;
 
 	const columns = [
 		{
@@ -69,21 +48,55 @@ export const TablePage = () => {
 	`
 
 	const basicTableCode = `
+		<Table data={tableData} columns={columns}/>
+	`
+
+	const expandedTableCode = `
 		import { Table } from '@solid-ui/solid-elements';
+		import basicTable from "./basic.data.json";
 
 		export const BasicTable = () => {
+            
+			const tableData = basicTable.data;
+            
+            const columns = [
+					\t\t{
+					\t\t\tcode: "firstName",
+					\t\t\theader: "First Name"
+					\t\t},
+					\t\t{
+					\t\t\tcode: "lastName",
+					\t\t\theader: "Last Name"
+					\t\t},
+					\t\t{
+					\t\t\tcode: "age",
+					\t\t\theader: "Age"
+					\t\t}
+					\t];
+				
 			return (
 				<Table data={tableData} columns={columns}/>
 			)
 		}
 	`
 
+	const [baseTableCode, setBaseTableCode] = createSignal(basicTableCode)
+
+	const sourceCodeToggled = () => {
+		setIsToggled(!isToggled())
+		if (isToggled()) {
+			setBaseTableCode(basicTableCode)
+		} else {
+			setBaseTableCode(expandedTableCode)
+		}
+	}
+
 	return (
 		<>
 		<div class="app-main-content">
 			<div ref={articleRef} id="article">
 				<h2 id="import">Import via module</h2>
-					<CodeHighlighter language="javascript">
+					<CodeHighlighter language="tsx">
 						{importTableCode}
 					</CodeHighlighter>
 					<h2 id="basic">Basic Table</h2>
@@ -92,8 +105,8 @@ export const TablePage = () => {
 						columns={columns}
 					>
 					</Table>
-					<CodeHighlighter language="js">
-						{basicTableCode}
+					<CodeHighlighter language="tsx" toggleSourceCode={true} id={uuidv4()} onToggleSourceCode={sourceCodeToggled}>
+						{baseTableCode()}
 					</CodeHighlighter>
 					<h2>Stripped</h2>
 			</div>
