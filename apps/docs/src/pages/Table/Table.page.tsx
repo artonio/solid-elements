@@ -2,6 +2,8 @@ import '../../App.scss';
 import {onCleanup, onMount} from 'solid-js';
 import {CodeHighlighter} from '@/components/CodeHighlighter';
 import {BasicTable} from "@/pages/Table/BasicTable";
+import { StrippedTable } from '@/pages/Table/StrippedTable';
+import { v4 as uuidv4 } from 'uuid';
 
 
 export const TablePage = () => {
@@ -34,11 +36,11 @@ export const TablePage = () => {
 		<div class="app-main-content">
 			<div ref={articleRef} id="article">
 				<h2 id="import">Import via module</h2>
-					<CodeHighlighter language="tsx">
+					<CodeHighlighter language="tsx" id={uuidv4()}>
 						{importTableCode}
 					</CodeHighlighter>
 					<BasicTable/>
-					<h2>Stripped</h2>
+					<StrippedTable/>
 			</div>
 		</div>
 		<div class="app-right-sidebar">

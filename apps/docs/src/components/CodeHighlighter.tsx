@@ -7,12 +7,12 @@ interface ICodeHighlightProps {
 	language?: string;
 	toggleSourceCode?: boolean;
 	onToggleSourceCode?: () => void;
-	id?: string;
+	id: string;
 }
 
 export const CodeHighlighter = (props: ICodeHighlightProps) => {
 	let c = children(() => props.children);
-	const {toggleSourceCode, onToggleSourceCode} = props;
+	const {toggleSourceCode, onToggleSourceCode, id} = props;
 
 	let codeRef!: HTMLElement;
 
@@ -20,9 +20,6 @@ export const CodeHighlighter = (props: ICodeHighlightProps) => {
 	createEffect(on([c], () => {
 		Prism.manual = true;
 		if (toggleSourceCode) {
-			Prism.plugins.toolbar.registerButton('toggle-source-code',  (env: any) => {
-				return toggleSourceCodeBtn();
-			});
 			// Highlight element does not work here and instead inserts duplicate code from previous state, very weird!
 			// the workaround is to use innerHTML and Prism highlight function
 			codeRef.innerHTML = Prism.highlight(props.children, Prism.languages.tsx, 'tsx');
@@ -43,7 +40,7 @@ export const CodeHighlighter = (props: ICodeHighlightProps) => {
 	onMount(() => {
 		Prism.manual = true;
 		if (toggleSourceCode) {
-			Prism.plugins.toolbar.registerButton('toggle-source-code',  (env: any) => {
+			Prism.plugins.toolbar.registerButton(`toggle-source-code-${id}`,  (env: any) => {
 				return toggleSourceCodeBtn();
 			});
 		}
@@ -54,7 +51,7 @@ export const CodeHighlighter = (props: ICodeHighlightProps) => {
 
 	return (
 		<>
-			<pre>
+			<pre data-toolbar-order={`toggle-source-code-${id}`}>
 				<code ref={codeRef} id={props.id} class={languageClassName}>
 						{c()}
 				</code>
