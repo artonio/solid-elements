@@ -1,50 +1,6 @@
-@import 'primeicons/primeicons.css';
-
 $color_1: #343a40;
 $color_2: #495057;
 $color_3: #4338CA;
-
-.s-button {
-  cursor: pointer;
-  margin: 0;
-  display: inline-flex;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  align-items: center;
-  vertical-align: bottom;
-  text-align: center;
-  overflow: hidden;
-  position: relative;
-  color: #ffffff;
-  background: #08b37d;
-  border: 1px solid #08b37d;
-  font-size: 1rem;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
-  border-radius: 6px;
-
-    &:hover {
-        background-color: #06815a;
-        color: #ffffff;
-        border: 1px solid #08b37d;
-    }
-
-    .s-button-text {
-        display: inline-block;
-        vertical-align: middle;
-        text-align: center;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        padding: 0.5rem 1rem;
-        font-size: 1rem;
-        font-weight: 400;
-        line-height: 1.5;
-        border-radius: 0.25rem;
-        transition: all 0.2s ease-in-out;
-    }
-}
 
 button {
   appearance: auto;
@@ -267,7 +223,4 @@ button {
   background: #EEF2FF;
   border-color: #EEF2FF;
   color: #4338CA !important;
-}
-button {
-  all: unset;
 }

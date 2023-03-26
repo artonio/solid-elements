@@ -179,13 +179,13 @@ export const Table = (input: ITableProps) => {
 		}
 		console.log('onSort', column)
 	}
-
+// TODO: make table width configurable
 	  return (
 		  <>
 		<div>
 			{props.globalFilter && <DefaultTableHeaderRendererWithFilter onChange={(value => simpleSearch(value))} />}
 		</div>
-		<div>
+		<div style={{'width': '100%'}}>
 			<table classList={{'s-datatable': true}}>
 				<thead classList={{'s-datatable-head': true}}>
 					{headerRenderer ? headerRenderer() : <DefaultTableHeaderRenderer

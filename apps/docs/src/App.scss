@@ -105,8 +105,11 @@
   }
 }
 
-.debug {
-  div {
-    outline: 1px lightsalmon dashed;
-  }
+.s-card {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    padding: 2rem;
 }

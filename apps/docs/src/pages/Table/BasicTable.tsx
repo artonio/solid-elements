@@ -72,11 +72,14 @@ export const BasicTable = () => {
     return (
         <>
             <h2 id="basic">Basic Table</h2>
-            <Table
-                data={tableData}
-                columns={columns}
-            >
-            </Table>
+            <div class="s-card">
+                <Table
+                    data={tableData}
+                    columns={columns}
+                >
+                </Table>
+            </div>
+
             <CodeHighlighter language="tsx" toggleSourceCode={true} id={uuidv4()} onToggleSourceCode={sourceCodeToggled}>
                 {baseTableCode()}
             </CodeHighlighter>

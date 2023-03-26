@@ -70,12 +70,14 @@ export const StrippedTable = () => {
 	return (
 		<>
 			<h2 id="basic">Stripped</h2>
-			<Table
-				data={tableData}
-				columns={columns}
-				strippedRows
-			>
-			</Table>
+			<div class="s-card">
+				<Table
+					data={tableData}
+					columns={columns}
+					strippedRows
+				>
+				</Table>
+			</div>
 			<CodeHighlighter language="tsx" toggleSourceCode={true} id={uuidv4()} onToggleSourceCode={sourceCodeToggled}>
 				{baseTableCode()}
 			</CodeHighlighter>

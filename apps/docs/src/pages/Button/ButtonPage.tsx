@@ -1,6 +1,7 @@
 import { Component, onCleanup, onMount } from 'solid-js';
 import { CodeHighlighter } from '@/components/CodeHighlighter';
 import { v4 as uuidv4 } from 'uuid';
+import { Button } from '@solid-ui/solid-elements/src/components/Button/Button';
 
 export const ButtonPage: Component<any> = () => {
 	let articleRef!: HTMLDivElement;
@@ -9,7 +10,9 @@ export const ButtonPage: Component<any> = () => {
 		import { Button } from '@solid-ui/solid-elements';
 	`;
 
-
+	const buttonSourceCode = `
+		<Button label="Submit" />
+	`;
 	const onResize = () => {
 		console.log(articleRef)
 		articleRef.style.height = window.innerHeight - 56 - 30 - 130 + 'px';
@@ -31,6 +34,12 @@ export const ButtonPage: Component<any> = () => {
 					<h2 id="import">Import via module</h2>
 					<CodeHighlighter language="tsx" id={uuidv4()}>
 						{importButtonCode}
+					</CodeHighlighter>
+					<div class="s-card">
+						<Button label="Submit" />
+					</div>
+					<CodeHighlighter language="tsx" id={uuidv4()}>
+						{buttonSourceCode}
 					</CodeHighlighter>
 				</div>
 			</div>
