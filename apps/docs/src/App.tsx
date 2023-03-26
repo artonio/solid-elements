@@ -4,6 +4,10 @@ import './App.scss';
 import { Route, Router, Routes } from '@solidjs/router';
 import PageWrapper from '@/components/PageWrapper';
 import { TablePage } from '@/pages/Table/Table.page';
+import { SelectButtonPage } from '@/pages/SelectButton/SelectButton.page';
+import { DropdownPage } from '@/pages/Dropdown/Dropdown.page';
+import { InputTextPage } from '@/pages/InputText/InputText.page';
+import { PaginatorPage } from '@/pages/Paginator.page';
 
 const App: Component = () => {
 
@@ -26,8 +30,12 @@ const App: Component = () => {
 		<>
 			<Router>
 				<Routes>
-					<Route path="/home" component={PageWrapper}>
+					<Route path="/" component={PageWrapper}>
 						<Route path="/table" component={TablePage}></Route>
+						<Route path="/select-button" component={SelectButtonPage}></Route>
+						<Route path="/dropdown" component={DropdownPage}></Route>
+						<Route path="/input-text" component={InputTextPage}></Route>
+						<Route path="/paginator" component={PaginatorPage}></Route>
 					</Route>
 				</Routes>
 			</Router>

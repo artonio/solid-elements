@@ -17,13 +17,16 @@ export const Menu: Component<IMenuProps> = (props: IMenuProps) => {
 			children: [
 				{
 					label: 'Input',
-					to: 'input'
+					to: 'input-text'
 
 				},
 				{
 					label: 'Dropdown',
 					to: 'dropdown'
-
+				},
+				{
+					label: 'Select Button',
+					to: 'select-button'
 				}
 			]
 		},
@@ -33,16 +36,6 @@ export const Menu: Component<IMenuProps> = (props: IMenuProps) => {
 				{
 					label: 'Table',
 					to: 'table',
-					children: [
-						{
-							label: 'Documentation',
-							to: '/docs/table'
-						},
-						{
-							label: "Basic",
-							to: "/datatable/basic",
-						}
-					]
 				},
 				{
 					label: 'Paginator',

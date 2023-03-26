@@ -33,29 +33,29 @@ export const TablePage = () => {
 
 	return (
 		<>
-		<div class="app-main-content">
-			<div ref={articleRef} id="article">
-				<h2 id="import">Import via module</h2>
-					<CodeHighlighter language="tsx" id={uuidv4()}>
-						{importTableCode}
-					</CodeHighlighter>
-					<BasicTable/>
-					<StrippedTable/>
+			<div class="app-main-content">
+				<div ref={articleRef} id="article">
+					<h2 id="import">Import via module</h2>
+						<CodeHighlighter language="tsx" id={uuidv4()}>
+							{importTableCode}
+						</CodeHighlighter>
+						<BasicTable/>
+						<StrippedTable/>
+				</div>
 			</div>
-		</div>
-		<div class="app-right-sidebar">
-						<ul>
-							<li><a href="#import">Import</a></li>
-							<li><a href="#basic">Basic</a></li>
-							<li><a href="#article">Size</a></li>
-							<li><a href="#article">Grid Lines</a></li>
-							<li><a href="#article">Striped row</a></li>
-							<li><a href="#article">Paginator</a></li>
-							<li><a href="#article">Sorting</a></li>
-							<li><a href="#article">Filtering</a></li>
-							<li><a href="#article">Row Selection</a></li>
-						</ul>
-		</div>
+			<div class="app-right-sidebar">
+							<ul>
+								<li><a href="#import">Import</a></li>
+								<li><a href="#basic">Basic</a></li>
+								<li><a href="#article">Size</a></li>
+								<li><a href="#article">Grid Lines</a></li>
+								<li><a href="#article">Striped row</a></li>
+								<li><a href="#article">Paginator</a></li>
+								<li><a href="#article">Sorting</a></li>
+								<li><a href="#article">Filtering</a></li>
+								<li><a href="#article">Row Selection</a></li>
+							</ul>
+			</div>
 		</>
 	)
 }

@@ -53,7 +53,7 @@ export const CodeHighlighter = (props: ICodeHighlightProps) => {
 		<>
 			<pre data-toolbar-order={`toggle-source-code-${id}`}>
 				<code ref={codeRef} id={props.id} class={languageClassName}>
-						{c()}
+					{c()}
 				</code>
 			</pre>
 		</>
