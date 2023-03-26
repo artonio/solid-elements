@@ -16,6 +16,15 @@ export const Menu: Component<IMenuProps> = (props: IMenuProps) => {
 			label: 'Form',
 			children: [
 				{
+					label: 'Button',
+					to: 'button'
+
+				},
+				{
+					label: 'Select Button',
+					to: 'select-button'
+				},
+				{
 					label: 'Input',
 					to: 'input-text'
 
@@ -24,10 +33,7 @@ export const Menu: Component<IMenuProps> = (props: IMenuProps) => {
 					label: 'Dropdown',
 					to: 'dropdown'
 				},
-				{
-					label: 'Select Button',
-					to: 'select-button'
-				}
+
 			]
 		},
 		{
