@@ -5,6 +5,36 @@ $color_2: #495057;
 $color_3: #4338CA;
 $btn_color: #08b37d;
 
+button {
+  appearance: auto;
+  writing-mode: horizontal-tb !important;
+  text-rendering: auto;
+  color: buttontext;
+  letter-spacing: normal;
+  word-spacing: normal;
+  line-height: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: center;
+  align-items: flex-start;
+  cursor: default;
+  box-sizing: border-box;
+  background-color: buttonface;
+  margin: 0em;
+  padding: 1px 6px;
+  border-width: 2px;
+  border-style: outset;
+  border-image: initial;
+}
+
+.s-component {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1rem;
+  font-weight: normal;
+}
+
 .s-disabled {
   opacity: 0.5;
   pointer-events: none;
@@ -64,29 +94,44 @@ $btn_color: #08b37d;
   }
 }
 
-button {
-  appearance: auto;
-  writing-mode: horizontal-tb !important;
-  text-rendering: auto;
-  color: buttontext;
-  letter-spacing: normal;
-  word-spacing: normal;
-  line-height: normal;
-  text-transform: none;
-  text-indent: 0px;
-  text-shadow: none;
-  display: inline-block;
-  text-align: center;
-  align-items: flex-start;
-  cursor: default;
-  box-sizing: border-box;
-  background-color: buttonface;
-  margin: 0em;
-  padding: 1px 6px;
-  border-width: 2px;
-  border-style: outset;
-  border-image: initial;
+.s-select-button {
+  .s-button {
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    color: #495057;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .s-highlight {
+    background-color: #08b37d;
+    color: #ffffff;
+    border: 1px solid #08b37d;
+  }
 }
+
+.s-button-set {
+  .s-button {
+    margin: 0;
+  }
+  :first-of-type {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+    :last-of-type {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+  :not(:first-of-type):not(:last-of-type) {
+    border-radius: 0;
+  }
+
+  :not(:last-child) {
+    border-right: 0;
+  }
+}
+
 
 .s-datatable {
   border-spacing: 0;

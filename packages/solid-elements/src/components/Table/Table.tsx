@@ -186,7 +186,7 @@ export const Table = (input: ITableProps) => {
 			{props.globalFilter && <DefaultTableHeaderRendererWithFilter onChange={(value => simpleSearch(value))} />}
 		</div>
 		<div style={{'width': '100%'}}>
-			<table classList={{'s-datatable': true}}>
+			<table classList={{'s-datatable': true, 's-component': true}}>
 				<thead classList={{'s-datatable-head': true}}>
 					{headerRenderer ? headerRenderer() : <DefaultTableHeaderRenderer
 						onSort={onSort}

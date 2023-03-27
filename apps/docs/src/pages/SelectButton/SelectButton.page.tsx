@@ -1,14 +1,27 @@
 import '../../App.scss';
 import { CodeHighlighter } from '@/components/CodeHighlighter';
 import { v4 as uuidv4 } from 'uuid';
-import { onCleanup, onMount } from 'solid-js';
+import { createSignal, onCleanup, onMount } from 'solid-js';
+import { SelectButton } from '@solid-ui/solid-elements/src/components/SelectButton/SelectButton';
+
+interface Item {
+	name: string;
+	value: number;
+}
 
 export const SelectButtonPage = () => {
+	const [value, setValue] = createSignal<Item | null>(null)
 	let articleRef!: HTMLDivElement;
 
 	const importSelectButtonCode = `
 		import { SelectButton } from '@solid-ui/solid-elements';
 	`;
+
+	const items: Item[] = [
+		{name: 'Option 1', value: 1},
+		{name: 'Option 2', value: 2},
+		{name: 'Option 3', value: 3}
+	];
 
 
 	const onResize = () => {
@@ -33,6 +46,9 @@ export const SelectButtonPage = () => {
 					<CodeHighlighter language="tsx" id={uuidv4()}>
 						{importSelectButtonCode}
 					</CodeHighlighter>
+					<div class="s-card">
+						<SelectButton options={items} value={value()} onChange={setValue} />
+					</div>
 				</div>
 			</div>
 			<div class="app-right-sidebar">

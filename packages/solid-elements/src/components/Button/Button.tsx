@@ -11,6 +11,7 @@ export const Button = (props: IButtonProps) => {
 	return (
 		<button classList={{
 			's-button': true,
+			's-component': true,
 			's-button-link': props.link,
 			's-disabled': props.disabled
 		}} onClick={props.onClick}>
