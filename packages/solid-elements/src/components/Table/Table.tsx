@@ -179,14 +179,14 @@ export const Table = (input: ITableProps) => {
 		}
 		console.log('onSort', column)
 	}
-
+// TODO: make table width configurable
 	  return (
 		  <>
 		<div>
 			{props.globalFilter && <DefaultTableHeaderRendererWithFilter onChange={(value => simpleSearch(value))} />}
 		</div>
-		<div>
-			<table classList={{'s-datatable': true}}>
+		<div style={{'width': '100%'}}>
+			<table classList={{'s-datatable': true, 's-component': true}}>
 				<thead classList={{'s-datatable-head': true}}>
 					{headerRenderer ? headerRenderer() : <DefaultTableHeaderRenderer
 						onSort={onSort}
@@ -210,10 +210,13 @@ export const Table = (input: ITableProps) => {
 			</table>
 			</div>
 		<div>
-			<Paginator first={firstState()}
-					   rows={rowsState()}
-					   totalRecords={props.data.length}
-					   onPageChange={onPageChange} />
+			<Show when={props.paginator} keyed={true}>
+				<Paginator first={firstState()}
+						   rows={rowsState()}
+						   totalRecords={props.data.length}
+						   onPageChange={onPageChange} />
+			</Show>
+
 		</div>
 		  </>
   );
