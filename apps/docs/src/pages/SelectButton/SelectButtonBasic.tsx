@@ -1,4 +1,4 @@
-import { SelectButton } from '@solid-ui/solid-elements/src';
+import { SelectButton } from '@solid-ui/solid-elements';
 import { CodeHighlighter } from '@/components/CodeHighlighter';
 import { v4 as uuidv4 } from 'uuid';
 import { createSignal } from 'solid-js';

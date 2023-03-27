@@ -1,5 +1,5 @@
 import '../../App.scss';
-import {Table} from "@solid-ui/solid-elements/src";
+import { Table } from "@solid-ui/solid-elements";
 import {CodeHighlighter} from "@/components/CodeHighlighter";
 import {v4 as uuidv4} from "uuid";
 import basicTable from "../basic.data.json";
@@ -69,10 +69,12 @@ export const BasicTable = () => {
             setBaseTableCode(expandedTableCode)
         }
     }
+
     return (
         <>
             <h2 id="basic">Basic Table</h2>
             <div class="s-card">
+
                 <Table
                     data={tableData}
                     columns={columns}

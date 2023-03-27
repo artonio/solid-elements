@@ -4,6 +4,7 @@ import {CodeHighlighter} from '@/components/CodeHighlighter';
 import {BasicTable} from "@/pages/Table/BasicTable";
 import { StrippedTable } from '@/pages/Table/StrippedTable';
 import { v4 as uuidv4 } from 'uuid';
+import { TableSizeDemo } from '@/pages/Table/TableSizeDemo';
 
 
 export const TablePage = () => {
@@ -41,13 +42,14 @@ export const TablePage = () => {
 						</CodeHighlighter>
 						<BasicTable/>
 						<StrippedTable/>
+						<TableSizeDemo/>
 				</div>
 			</div>
 			<div class="app-right-sidebar">
 							<ul>
 								<li><a href="#import">Import</a></li>
 								<li><a href="#basic">Basic</a></li>
-								<li><a href="#article">Size</a></li>
+								<li><a href="#size">Size</a></li>
 								<li><a href="#article">Grid Lines</a></li>
 								<li><a href="#article">Striped row</a></li>
 								<li><a href="#article">Paginator</a></li>

@@ -1,29 +1,36 @@
 import { createSignal } from 'solid-js';
-import { SelectButton } from '@solid-ui/solid-elements/src';
+import { SelectButton } from '@solid-ui/solid-elements';
 import { v4 as uuidv4 } from 'uuid';
 import { CodeHighlighter } from '@/components/CodeHighlighter';
 
 export const SelectButtonMultiple = () => {
-	const [value, setValue] = createSignal(null);
-	const [isToggled, setIsToggled] = createSignal(true)
 	const items = [
 		{name: 'Option 1', value: 1},
 		{name: 'Option 2', value: 2},
 		{name: 'Option 3', value: 3}
 	];
+	const [value, setValue] = createSignal<any[] | null>([items[1].value]);
+	const [isToggled, setIsToggled] = createSignal(true)
+
 	const basicShortCode = `
-		<SelectButton value={value} onChange={(e) => setValue(e.value)} options={options} multiple />
+		<SelectButton 
+				value={value} 
+				onChange={(e) => setValue(e.value)} 
+				optionLabel="name" 
+				options={options} 
+				multiple 
+		/>
 	`
 
 	const expandedCode = `
 		import { SelectButton } from '@solid-ui/solid-elements';
 		export const SelectButtonBasicDemo = () => {
-			const [value, setValue] = createSignal(null);
 			const items = [
 				\t\t{name: 'Option 1', value: 1},
 				\t\t{name: 'Option 2', value: 2},
 				\t\t{name: 'Option 3', value: 3}
 				\t];
+		const [value, setValue] = createSignal([[items[1].value]]);
 			return (
 				<SelectButton value={value()}
 \t\t\t\t\t\t\t  onChange={(e: any) => setValue(e.value)}
@@ -43,6 +50,11 @@ export const SelectButtonMultiple = () => {
 			setCode(expandedCode)
 		}
 	}
+
+	const onChange = (e: any) => {
+		setValue(e.value)
+	}
+
 	return (
 		<>
 			<h2 id="multiple">Multiple</h2>
@@ -52,7 +64,7 @@ export const SelectButtonMultiple = () => {
 			</div>
 			<div class="s-card">
 				<SelectButton value={value()}
-							  onChange={(e: any) => setValue(e.value)}
+							  onChange={onChange}
 							  optionLabel="name"
 							  options={items}
 							  multiple
