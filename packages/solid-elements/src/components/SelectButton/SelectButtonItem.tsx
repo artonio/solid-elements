@@ -15,8 +15,6 @@ export interface ISelectButtonItemProps {
 
 	template?: any;
 
-	tabIndex: number | null;
-
 	onClick?: ({originalEvent, option}: {originalEvent: any, option: any}) => void;
 }
 export const SelectButtonItem = (props: ISelectButtonItemProps) => {

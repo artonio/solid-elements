@@ -6,18 +6,20 @@ import { SelectButton, SelectItem } from '@solid-ui/solid-elements/src/component
 
 
 export const SelectButtonPage = () => {
-	const items: string[] = [
+	const basicModel: string[] = [
 		'Off',
 		'On',
 	];
-	const [value, setValue] = createSignal<string>(items[0])
+	const [basicValue, setBasicValue] = createSignal<string>(basicModel[0])
 	let articleRef!: HTMLDivElement;
 
 	const importSelectButtonCode = `
 		import { SelectButton } from '@solid-ui/solid-elements';
 	`;
 
-
+	const basicShortCode = `
+		<SelectButton value={value} onChange={(e) => setValue(e.value)} options={options} />
+	`
 
 
 	const onResize = () => {
@@ -36,8 +38,7 @@ export const SelectButtonPage = () => {
 	});
 
 	const onChange = (e: any) => {
-		console.log('onChange', e)
-		setValue(e.value)
+		setBasicValue(e.value)
 	}
 
 	return (
@@ -48,11 +49,24 @@ export const SelectButtonPage = () => {
 					<CodeHighlighter language="tsx" id={uuidv4()}>
 						{importSelectButtonCode}
 					</CodeHighlighter>
+					<h2 id="basic">Basic</h2>
+					<div class="doc-section-description"><p>SelectButton is used as a controlled component
+						with <i>value</i> and <i>onChange</i> properties along with an <i>options</i> collection. Label
+						and value of an option are defined with the <i>optionLabel</i> and <i>optionValue</i> properties
+						respectively. Default property name for
+						the <i>optionLabel</i> is <i>label</i> and <i>value</i> for the <i>optionValue</i>.
+						If <i>optionValue</i> is omitted and the object has no <i>value</i> property, the object itself
+						becomes the value of an option. Note that, when options are simple primitive values such as a
+						string array, no <i>optionLabel</i> and <i>optionValue</i> would be necessary.</p></div>
 					<div class="s-card">
-						<SelectButton options={items} value={value()} onChange={(e) => {
+						<SelectButton options={basicModel} value={basicValue()} onChange={(e) => {
 							onChange(e)
 						}} />
 					</div>
+					<CodeHighlighter language="tsx" id={uuidv4()} toggleSourceCode>
+						{basicShortCode}
+					</CodeHighlighter>
+
 				</div>
 			</div>
 			<div class="app-right-sidebar">

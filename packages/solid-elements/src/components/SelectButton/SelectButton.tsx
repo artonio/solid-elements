@@ -1,5 +1,4 @@
 import { createEffect, createSignal, For, mergeProps, on } from 'solid-js';
-import { Button } from '../Button/Button';
 import ObjectUtils from '../utils/ObjectUtils';
 import { SelectButtonItem } from './SelectButtonItem';
 import { selectButtonBaseProps } from './SelectButtonBase';
@@ -29,8 +28,6 @@ export interface SelectItem {
 	disabled?: boolean;
 }
 
-// export type SelectItemOptionsType = SelectItem[] | any[];
-
 export interface ISelectButtonProps {
 	/**
 	 * An array of objects to display as the available options.
@@ -42,6 +39,10 @@ export interface ISelectButtonProps {
 	 */
 	dataKey?: string;
 
+	/**
+	 * When specified, allows selecting multiple values.
+	 */
+	multiple?: boolean;
 	/**
 	 * When present, it specifies that the element should be disabled.
 	 */
@@ -114,17 +115,15 @@ export const SelectButton = (initProps: ISelectButtonProps) => {
 	const isSelected = (option: SelectItem | any) => {
 		let optionValue = getOptionValue(option);
 
-		/*if (props.multiple) {
+		if (props.multiple) {
 			if (props.value && props.value.length) {
-				return props.value.some((val) => ObjectUtils.equals(val, optionValue, props.dataKey));
+				return props.value.some((val: any) => ObjectUtils.equals(val, optionValue, props.dataKey));
 			}
 		} else {
 			return ObjectUtils.equals(props.value, optionValue, props.dataKey);
-		}*/
+		}
 
-		// return ObjectUtils.equals(props.value, optionValue, props.dataKey);
-		const r =  ObjectUtils.equals(props.value, optionValue, props.dataKey);
-		return r;
+		return false;
 	};
 
 	const getOptionLabel = (option: any) => {
@@ -132,7 +131,9 @@ export const SelectButton = (initProps: ISelectButtonProps) => {
 	};
 
 	const isOptionDisabled = (option: SelectItem | any): boolean => {
-		// let result = false;
+		if (props.disabled) {
+			return props.disabled;
+		}
 		if (props.optionDisabled) {
 			return isOptionDisabledFunction(props.optionDisabled) ? props.optionDisabled(option) : ObjectUtils.resolveFieldData(option, props.optionDisabled);
 		}
@@ -172,39 +173,13 @@ export const SelectButton = (initProps: ISelectButtonProps) => {
 		}
 	};
 
-	const Items = (props: any) => {
-		return (
-			<For each={props.options}>
-				{(option: SelectItem | any) => {
-					const isDisabled = props.disabled || isOptionDisabled(option);
-					const optionLabel = getOptionLabel(option);
-					const tabIndex = isDisabled ? null : 0;
-					const selected = isSelected(option);
-
-					return <SelectButtonItem label={optionLabel}
-											 option={option}
-											 tabIndex={tabIndex}
-											 selected={selected}
-											 onClick={onOptionClick}
-					/>
-				}}
-
-			</For>
-		)
-	}
-
 	return (
 		<>
 			<div classList={{'s-select-button': true, 's-button-set': true, 's-component': true}} role="group">
-				{/*<Items options={getOptions()} />*/}
 				<For each={props.options}>
 					{(option: SelectItem | any) => {
-						const isDisabled = props.disabled || isOptionDisabled(option);
-						const tabIndex = isDisabled ? null : 0;
-
 						return <SelectButtonItem label={getOptionLabel(option)}
 												 option={option}
-												 tabIndex={tabIndex}
 												 selected={isSelected(option)}
 												 onClick={onOptionClick}
 						/>
