@@ -48,7 +48,7 @@ export const SelectButtonPage = () => {
 				<ul>
 					<li><a href="#import">Import</a></li>
 					<li><a href="#basic">Basic</a></li>
-					<li><a href="#article">Multiple</a></li>
+					<li><a href="#multiple">Multiple</a></li>
 					<li><a href="#article">Template</a></li>
 					<li><a href="#article">Invalid</a></li>
 					<li><a href="#article">Disabled</a></li>
