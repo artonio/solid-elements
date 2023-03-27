@@ -5,6 +5,12 @@ $color_2: #495057;
 $color_3: #4338CA;
 $btn_color: #08b37d;
 
+.s-highlight {
+  background: #EEF2FF;
+  border-color: #EEF2FF;
+  color: #4338CA !important;
+}
+
 button {
   appearance: auto;
   writing-mode: horizontal-tb !important;
@@ -100,11 +106,23 @@ button {
     border: 1px solid #ced4da;
     color: #495057;
     transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+
+    &:not(.s-disabled):not(.s-highlight):hover {
+      background: #e9ecef;
+      border-color: #ced4da;
+      color: #495057;
+    }
+
+    &:hover {
+      background-color: #06815a;
+      color: #ffffff;
+      border: 1px solid #08b37d;
+    }
   }
 
   .s-highlight {
     background-color: #08b37d;
-    color: #ffffff;
+    color: #ffffff !important;
     border: 1px solid #08b37d;
   }
 }
@@ -118,10 +136,10 @@ button {
     border-bottom-right-radius: 0;
   }
 
-    :last-of-type {
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-    }
+  :last-of-type {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+  }
 
   :not(:first-of-type):not(:last-of-type) {
     border-radius: 0;
@@ -326,11 +344,4 @@ button {
   background: #e9ecef;
 }
 
-.s-highlight {
-  background: #EEF2FF;
-  border-color: #EEF2FF;
-  color: #4338CA !important;
-}
-button {
-  all: unset;
-}
+

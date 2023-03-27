@@ -2,26 +2,22 @@ import '../../App.scss';
 import { CodeHighlighter } from '@/components/CodeHighlighter';
 import { v4 as uuidv4 } from 'uuid';
 import { createSignal, onCleanup, onMount } from 'solid-js';
-import { SelectButton } from '@solid-ui/solid-elements/src/components/SelectButton/SelectButton';
+import { SelectButton, SelectItem } from '@solid-ui/solid-elements/src/components/SelectButton/SelectButton';
 
-interface Item {
-	name: string;
-	value: number;
-}
 
 export const SelectButtonPage = () => {
-	const [value, setValue] = createSignal<Item | null>(null)
+	const items: string[] = [
+		'Off',
+		'On',
+	];
+	const [value, setValue] = createSignal<string>(items[0])
 	let articleRef!: HTMLDivElement;
 
 	const importSelectButtonCode = `
 		import { SelectButton } from '@solid-ui/solid-elements';
 	`;
 
-	const items: Item[] = [
-		{name: 'Option 1', value: 1},
-		{name: 'Option 2', value: 2},
-		{name: 'Option 3', value: 3}
-	];
+
 
 
 	const onResize = () => {
@@ -38,6 +34,12 @@ export const SelectButtonPage = () => {
 	onCleanup(() => {
 		window.removeEventListener('resize', onResize);
 	});
+
+	const onChange = (e: any) => {
+		console.log('onChange', e)
+		setValue(e.value)
+	}
+
 	return (
 		<>
 			<div class="app-main-content">
@@ -47,7 +49,9 @@ export const SelectButtonPage = () => {
 						{importSelectButtonCode}
 					</CodeHighlighter>
 					<div class="s-card">
-						<SelectButton options={items} value={value()} onChange={setValue} />
+						<SelectButton options={items} value={value()} onChange={(e) => {
+							onChange(e)
+						}} />
 					</div>
 				</div>
 			</div>
