@@ -78,6 +78,8 @@ export interface ISelectButtonProps {
 	 * @param value
 	 */
 	onChange: (value: any) => void;
+
+	ref?: any;
 }
 
 const isOptionDisabledFunction = (optionDisabled: string | ((option: SelectItem | any) => boolean)): optionDisabled is (option: SelectItem | any) => boolean => {
@@ -175,7 +177,7 @@ export const SelectButton = (initProps: ISelectButtonProps) => {
 
 	return (
 		<>
-			<div classList={{'s-select-button': true, 's-button-set': true, 's-component': true}} role="group">
+			<div ref={props.ref} classList={{'s-select-button': true, 's-button-set': true, 's-component': true}} role="group">
 				<For each={props.options}>
 					{(option: SelectItem | any) => {
 						return <SelectButtonItem label={getOptionLabel(option)}

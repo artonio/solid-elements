@@ -49,13 +49,13 @@ export const TablePage = () => {
 							<ul>
 								<li><a href="#import">Import</a></li>
 								<li><a href="#basic">Basic</a></li>
+								<li><a href="#striped">Striped row</a></li>
 								<li><a href="#size">Size</a></li>
-								<li><a href="#article">Grid Lines</a></li>
-								<li><a href="#article">Striped row</a></li>
-								<li><a href="#article">Paginator</a></li>
-								<li><a href="#article">Sorting</a></li>
-								<li><a href="#article">Filtering</a></li>
-								<li><a href="#article">Row Selection</a></li>
+								<li><a href="#">Grid Lines</a></li>
+								<li><a href="#">Paginator</a></li>
+								<li><a href="#">Sorting</a></li>
+								<li><a href="#">Filtering</a></li>
+								<li><a href="#">Row Selection</a></li>
 							</ul>
 			</div>
 		</>

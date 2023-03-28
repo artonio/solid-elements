@@ -7,11 +7,13 @@ export interface IButtonProps {
 	disabled?: boolean
 
 	highlight?: boolean
+
+	ref?: any
 }
 
 export const Button = (props: IButtonProps) => {
 	return (
-		<button classList={{
+		<button ref={props.ref} classList={{
 			's-button': true,
 			's-highlight': props.highlight,
 			's-component': true,

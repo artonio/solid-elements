@@ -69,7 +69,7 @@ export const StrippedTable = () => {
 	}
 	return (
 		<>
-			<h2 id="basic">Stripped</h2>
+			<h2 id="striped">Stripped</h2>
 			<div class="s-card">
 				<Table
 					data={tableData}
