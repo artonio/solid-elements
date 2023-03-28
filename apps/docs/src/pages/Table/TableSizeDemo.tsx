@@ -110,6 +110,7 @@ export const TableSizeDemo = () => {
 				<SelectButton options={basicModel} value={value()} onChange={(e) => {
 					onChange(e)
 				}}/>
+				<div style={{height: '20px'}}></div>
 				<Table
 					data={tableData}
 					columns={columns}

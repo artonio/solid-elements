@@ -24,6 +24,123 @@ input {
   border-image: initial;
 }
 
+$color-gray-300: #e2e8f0;
+$color-gray-400: #cbd5e0;
+$color-gray-500: #a0aec0;
+
+.s-select-container {
+  position: relative;
+  box-sizing: border-box;
+  .s-select-control {
+    border-color: hsl(0, 0%, 80%);
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    display: flex;
+    justify-content: space-between;
+    min-height: 38px;
+    cursor: pointer;
+    min-width: 10rem;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      border-color: $color-gray-400;
+    }
+
+    .s-select-value-container {
+      flex: 1;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 2px 8px;
+      box-sizing: border-box;
+      display: grid;
+
+      .s-select-placeholder {
+        grid-area: 1/1/2/3;
+        color: hsl(0, 0%, 50%);
+        margin-left: 2px;
+        margin-right: 2px;
+        box-sizing: border-box;
+      }
+    }
+    .s-select-indicators-container {
+      display: flex;
+      align-items: center;
+      align-self: stretch;
+      flex-shrink: 0;
+      box-sizing: border-box;
+
+      .s-select-indicator-separator {
+        background-color: hsl(0, 0%, 80%);
+        width: 1px;
+        height: 80%;
+        margin-top: 8px;
+        margin-bottom: 8px;
+        box-sizing: border-box;
+      }
+
+      .s-select-indicator-container {
+        color: hsl(0, 0%, 50%);
+        display: flex;
+        padding: 8px;
+        box-sizing: border-box;
+      }
+    }
+
+    .s-select-arrow {
+      width: 1rem;
+      height: 1rem;
+      fill: $color-gray-500;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  .s-select-menu {
+    top: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 4px;
+    box-shadow: 0 0 0 1px hsl(0deg 0% 0% / 10%), 0 4px 11px hsl(0deg 0% 0% / 10%);
+    margin-bottom: 8px;
+    margin-top: 1px;
+    box-sizing: border-box;
+
+    .s-select-menu-list {
+      position: relative;
+      max-height: 200px;
+      overflow-y: auto;
+      margin: 0;
+      list-style: none;
+      box-sizing: border-box;
+      padding-bottom: 4px;
+      padding-top: 4px;
+
+      .s-select-menu-item {
+        cursor: default;
+        display: block;
+        font-size: inherit;
+        width: 100%;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        background-color: transparent;
+        color: inherit;
+        padding: 8px 12px;
+        box-sizing: border-box;
+
+        &:hover {
+          background-color: $color-gray-300;
+        }
+      }
+    }
+  }
+}
+
 .s-inputtext {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 1rem;
