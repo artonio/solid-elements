@@ -1,6 +1,7 @@
 import { onCleanup, onMount } from 'solid-js';
 import { CodeHighlighter } from '@/components/CodeHighlighter';
 import { v4 as uuidv4 } from 'uuid';
+import { InputText } from '@solid-ui/solid-elements/src';
 
 export const InputTextPage = () => {
 	let articleRef!: HTMLDivElement;
@@ -32,6 +33,13 @@ export const InputTextPage = () => {
 					<CodeHighlighter language="tsx" id={uuidv4()}>
 						{importInputCode}
 					</CodeHighlighter>
+					<h2 id="basic">Basic</h2>
+					<div class="doc-section-description">
+						<p>InputText is used as a controlled input with <i>value</i> and <i>onChange</i> properties.</p>
+					</div>
+					<div class="s-card">
+						<InputText />
+					</div>
 				</div>
 			</div>
 			<div class="app-right-sidebar">

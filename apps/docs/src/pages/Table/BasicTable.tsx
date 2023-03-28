@@ -74,7 +74,6 @@ export const BasicTable = () => {
         <>
             <h2 id="basic">Basic Table</h2>
             <div class="s-card">
-
                 <Table
                     data={tableData}
                     columns={columns}
