@@ -9,6 +9,7 @@ import { DropdownPage } from '@/pages/Dropdown/Dropdown.page';
 import { InputTextPage } from '@/pages/InputText/InputText.page';
 import { PaginatorPage } from '@/pages/Paginator/Paginator.page';
 import { ButtonPage } from '@/pages/Button/ButtonPage';
+import { KeyFilterPage } from '@/pages/KeyFilter/KeyFilter.page';
 
 const App: Component = () => {
 
@@ -37,6 +38,7 @@ const App: Component = () => {
 						<Route path="/button" component={ButtonPage}></Route>
 						<Route path="/dropdown" component={DropdownPage}></Route>
 						<Route path="/input-text" component={InputTextPage}></Route>
+						<Route path="/key-filter" component={KeyFilterPage}></Route>
 						<Route path="/paginator" component={PaginatorPage}></Route>
 					</Route>
 				</Routes>

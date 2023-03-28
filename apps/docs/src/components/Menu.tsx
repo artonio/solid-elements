@@ -30,6 +30,11 @@ export const Menu: Component<IMenuProps> = (props: IMenuProps) => {
 
 				},
 				{
+					label: 'KeyFilter',
+					to: 'key-filter'
+
+				},
+				{
 					label: 'Dropdown',
 					to: 'dropdown'
 				},
