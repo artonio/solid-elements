@@ -1,10 +1,10 @@
 import { createEffect, createSignal, For, mergeProps, Show, useContext } from 'solid-js';
 import '../../index.scss'
 import { IColumnProps, ITableBodyProps, ITableHeaderProps, ITableProps } from './types';
-import { Paginator } from '../Paginator/Paginator';
-import { isTwoObjectsEqual } from '../utils/isTwoObjectsEqual';
+import { Paginator } from '../Paginator';
+import { isTwoObjectsEqual } from '../utils';
 import { TableBaseProps } from './TableBase';
-import { sortAsc, sortDesc } from '../utils/sortAscDesc';
+import { sortAsc, sortDesc } from '../utils';
 
 export const Column = (props: IColumnProps) => {
 	return (
