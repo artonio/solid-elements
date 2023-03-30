@@ -45,6 +45,10 @@ export const Menu: Component<IMenuProps> = (props: IMenuProps) => {
 			label: 'Data',
 			children: [
 				{
+					label: 'Accordion',
+					to: 'accordion',
+				},
+				{
 					label: 'Table',
 					to: 'table',
 				},

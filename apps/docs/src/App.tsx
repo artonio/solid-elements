@@ -10,6 +10,7 @@ import { InputTextPage } from '@/pages/InputText/InputText.page';
 import { PaginatorPage } from '@/pages/Paginator/Paginator.page';
 import { ButtonPage } from '@/pages/Button/ButtonPage';
 import { KeyFilterPage } from '@/pages/KeyFilter/KeyFilter.page';
+import { AccordionPage } from '@/pages/Accordion/Accordion.page';
 
 const App: Component = () => {
 
@@ -33,6 +34,7 @@ const App: Component = () => {
 			<Router>
 				<Routes>
 					<Route path="/" component={PageWrapper}>
+						<Route path="/accordion" component={AccordionPage}></Route>
 						<Route path="/table" component={TablePage}></Route>
 						<Route path="/select-button" component={SelectButtonPage}></Route>
 						<Route path="/button" component={ButtonPage}></Route>
