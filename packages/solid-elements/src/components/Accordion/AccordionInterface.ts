@@ -1,3 +1,5 @@
+import {JSX} from "solid-js";
+
 /**
  * Custom tab change event.
  * @see {@link AccordionProps.onTabChange}
@@ -40,6 +42,8 @@ export interface AccordionTabCloseEvent extends AccordionTabOpenEvent {}
 
 export interface IAccordionProps {
 	id?: string;
+
+	style?: JSX.CSSProperties;
 
 	/**
 	 * Active index or indexes of the element. Use an array of numbers for multiple indexes.
