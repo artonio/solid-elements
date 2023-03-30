@@ -1304,22 +1304,22 @@
     colors "~1.2.1"
     string-argv "~0.3.1"
 
-"@solid-primitives/refs@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@solid-primitives/refs/-/refs-1.0.0.tgz#1850b9d656aae87df59cdf837650b559c2411eac"
-  integrity sha512-eoX2UNSIGIFniuf7bbq7vPdl7QxNL/vxHQFxbXaqtFpvPaLDHRNLzYOO3xai24D8U63Vmg1Wresysia9B35mXw==
+"@solid-primitives/refs@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/refs/-/refs-1.0.1.tgz#e3f5fc0ea332e1e19951382e91e736127dff26dc"
+  integrity sha512-1DYJCbAYVr1qGtKhexxYt0IA4VKgQFmgO6pSqW98p6XwNO2kqJwKb6wVMBSCggLdresE0mqBSTyYPPIE1sxMJQ==
   dependencies:
-    "@solid-primitives/utils" "^5.4.0"
+    "@solid-primitives/utils" "^5.5.1"
 
-"@solid-primitives/transition-group@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@solid-primitives/transition-group/-/transition-group-1.0.0.tgz#b1e3e348ac026b18954d08a59ffe530ba2c1d154"
-  integrity sha512-/k4nBZca6gpGsUUPVAUGNowRbQuod8FwGlh1fhr4teQHyFIDNUFUiA74XUwPf49BAHDdCYsNEJo6eDizrXUh1w==
+"@solid-primitives/transition-group@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/transition-group/-/transition-group-1.0.1.tgz#c133b7a9ea9f5cf595d21cbeb7a384b76751ea22"
+  integrity sha512-StVQs7BVGQa1uo6dD19wqOgfGMxu3gL/bvPHUV/NBJaiNX5R5e7dPb6lz6zR1RdTho3M+3Mv8jUHKd/aKuhL4w==
 
-"@solid-primitives/utils@^5.4.0":
-  version "5.5.0"
-  resolved "https://registry.yarnpkg.com/@solid-primitives/utils/-/utils-5.5.0.tgz#d20f17f4f352b7edaa36715543a9e8615f7f3749"
-  integrity sha512-+0VGdqRA4g/u6PACJKER7E9v7njd3c+JA4RuXGvvZO/v8wPegOLHkxpohOQHRBSWY+Q+dmyVfXn0mks2m6gfJg==
+"@solid-primitives/utils@^5.5.1":
+  version "5.5.2"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/utils/-/utils-5.5.2.tgz#873276d5bfedf7709d6268b1bee4f1a0897e85fa"
+  integrity sha512-L52ig3eHKU6CqbPCKJIb4lweBuINHBOERcE1duApyKozEN8+zCqEKwD1Qo9ljKeEzJTBGWClxNpwEiNTUWTGvg==
 
 "@solidjs/router@^0.8.2":
   version "0.8.2"
@@ -2712,13 +2712,13 @@ solid-refresh@^0.5.0:
     "@babel/helper-module-imports" "^7.18.6"
     "@babel/types" "^7.21.2"
 
-solid-transition-group@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/solid-transition-group/-/solid-transition-group-0.1.1.tgz#aae825147a423dea4a287fa32b71059c7a3d2405"
-  integrity sha512-btBkd2ruEQRIzhWaDrW1TeOCj4/91YolGbZJQ2cyvnRlLydBV+5H5UMl3rvY8nGLdx2sTRlCCixKyaZbv+Z6Ag==
+solid-transition-group@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/solid-transition-group/-/solid-transition-group-0.2.2.tgz#a38e8d4e0ae19dcb67ac24355d8d2f82b2b3ea2d"
+  integrity sha512-6nB90UM2PB6VsIo/UCkmZmlIJb9mnmP7QPGrePqQJWtpUiRs5PbhkB8fvdyv9g/RPHWYpdJhQgxL6n++WmTt5A==
   dependencies:
-    "@solid-primitives/refs" "^1.0.0"
-    "@solid-primitives/transition-group" "^1.0.0"
+    "@solid-primitives/refs" "^1.0.1"
+    "@solid-primitives/transition-group" "^1.0.1"
 
 "source-map-js@>=0.6.2 <2.0.0", source-map-js@^1.0.2:
   version "1.0.2"

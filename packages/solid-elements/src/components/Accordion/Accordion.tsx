@@ -1,5 +1,5 @@
 import "./Accordion.css";
-import { children, ChildrenReturn, createSignal, mergeProps, onMount } from 'solid-js';
+import {children, ChildrenReturn, createSignal, mergeProps, onMount, Show} from 'solid-js';
 import { AccordionBaseProps, AccordionTabBaseProps } from './AccordionBase';
 import ObjectUtils from '../utils/ObjectUtils';
 import { IAccordionProps } from './AccordionInterface';
@@ -7,7 +7,6 @@ import UniqueComponentId from '../utils/UniqueComponentId';
 import { ResolvedJSXElement } from 'solid-js/types/reactive/signal';
 
 export const AccordionTab = (props: any) => {
-	// const c: ChildrenReturn = children(() => props.children);
 	return (
 		<>
 			{props}
@@ -43,7 +42,7 @@ export const Accordion = (input: IAccordionProps) => {
 	}
 
 	const onTabHeaderClick = (event: any, tab: any, index: any) => {
-		if (!getTabProp(tab, 'disabled')) {
+		if (!tab.disabled) {
 			const selected = isSelected(index);
 			let newActiveIndex;
 
@@ -78,8 +77,8 @@ export const Accordion = (input: IAccordionProps) => {
 			'p-highlight': selected,
 			'p-disabled': getTabProp(tab, 'disabled')
 		}
-		const className = `${getTabProp(tab, 'headerClassName')} ${getTabProp(tab, 'className')}`
-		const tabIndex = getTabProp(tab, 'disabled') ? -1 : getTabProp(tab, 'tabIndex');
+		const className = `${tab.headerClassName} ${tab.className}`
+		const tabIndex = tab.disabled ? -1 : tab.tabIndex;
 		const headerId = idState() + '_header_' + index;
 		const ariaControls = idState + '_content_' + index;
 		// const label = selected ? ariaLabel('collapseLabel') : ariaLabel('expandLabel');
@@ -94,15 +93,18 @@ export const Accordion = (input: IAccordionProps) => {
 	}
 
 	const createTabContent = (tab: any, selected: boolean, index: number) => {
-		const style = { ...(getTabProp(tab, 'style') || {}), ...(getTabProp(tab, 'contentStyle') || {}) };
+		const style = { ...tab.style || {}, ...tab.contentStyle || {} };
 		const contentId = idState() + '_content_' + index;
 		const ariaLabelledby = idState() + '_header_' + index;
 
-		const className = `p-toggleable-content ${getTabProp(tab, 'contentClassName')} ${getTabProp(tab, 'className')}`;
+		const className = `p-toggleable-content ${tab.contentClassName || ''} ${tab.className || ''}`;
 		return (
-			<div id={contentId} class={className} style={style} role="region" aria-labelledby={ariaLabelledby}>
-				<div class="p-accordion-content">{tab.children}</div>
-			</div>
+			<Show when={selected} keyed>
+				<div id={contentId} class={className} style={style} role="region" aria-labelledby={ariaLabelledby}>
+					<div class="p-accordion-content">{tab.children}</div>
+				</div>
+			</Show>
+
 		)
 	}
 
