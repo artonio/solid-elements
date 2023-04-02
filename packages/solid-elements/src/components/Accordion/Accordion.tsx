@@ -1,10 +1,11 @@
 import "./Accordion.css";
-import {children, ChildrenReturn, createSignal, mergeProps, onMount, Show} from 'solid-js';
+import {children, ChildrenReturn, createMemo, createSignal, For, mergeProps, onMount, Show} from 'solid-js';
 import { AccordionBaseProps, AccordionTabBaseProps } from './AccordionBase';
 import ObjectUtils from '../utils/ObjectUtils';
 import { IAccordionProps } from './AccordionInterface';
 import UniqueComponentId from '../utils/UniqueComponentId';
 import { ResolvedJSXElement } from 'solid-js/types/reactive/signal';
+import {Transition} from "solid-transition-group";
 
 export const AccordionTab = (props: any) => {
 	return (
@@ -14,11 +15,21 @@ export const AccordionTab = (props: any) => {
 	)
 };
 
+export interface IAccordionTabContentProps {
+	tab: any;
+	selected: boolean;
+	index: number;
+}
+
+
+
 export const Accordion = (input: IAccordionProps) => {
 	const props = mergeProps(AccordionBaseProps, input);
 	const c: ChildrenReturn = children(() => props.children);
+	const childrenArray: ResolvedJSXElement[] = c.toArray();
 	const [idState, setIdState] = createSignal(props.id);
 	const [activeIndexState, setActiveIndexState] = createSignal<number | number[] | null>(props.activeIndex);
+
 
 	const customClassName = () => {
 		return props.className ? props.className : '';
@@ -37,11 +48,15 @@ export const Accordion = (input: IAccordionProps) => {
 		return ObjectUtils.getComponentProp(tab, name, AccordionTabBaseProps)
 	}
 
+
 	const isSelected = (index: number) => {
-		return props.multiple ? activeIndex() && (activeIndex() as number[]).some((i: number) => i === index) : activeIndex() === index;
+		const r =  props.multiple ? activeIndex() && (activeIndex() as number[]).some((i: number) => i === index) : activeIndex() === index;
+		console.log('isSelected', r);
+		return r;
 	}
 
 	const onTabHeaderClick = (event: any, tab: any, index: any) => {
+
 		if (!tab.disabled) {
 			const selected = isSelected(index);
 			let newActiveIndex;
@@ -92,18 +107,56 @@ export const Accordion = (input: IAccordionProps) => {
 		)
 	}
 
-	const createTabContent = (tab: any, selected: boolean, index: number) => {
+	const createTabContent = (tab: any, selected_old: boolean, index: number) => {
 		const style = { ...tab.style || {}, ...tab.contentStyle || {} };
 		const contentId = idState() + '_content_' + index;
 		const ariaLabelledby = idState() + '_header_' + index;
 
+		const MIN_HEIGHT = 78;
+
+		function onEnter(el: any, done: VoidFunction) {
+			// const a = el.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 1500, easing: "ease" });
+			const height = el.clientHeight;
+			el.style.height = '0'; // set the initial height to 0
+			const a = el.animate([
+				{ opacity: 0, height: '0' },
+				{ opacity: 1, height: `${height}px` }
+			], { duration: 200, easing: 'linear' }); // animate the height property
+			a.finished.then(() => {
+				el.style.height = 'auto'; // set the height back to auto
+				done(); // call the done function
+			});
+			// a.finished.then(done);
+		}
+		function onExit(el: any, done: VoidFunction) {
+			// const a = el.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 1500, easing: "ease" });
+			// a.finished.then(done);
+			const height = el.clientHeight;
+			el.style.height = '100%'; // set the initial height to 100%
+			const a = el.animate([
+				{ opacity: 1, height: `${height}px` },
+				{ opacity: 0, height: '0' }
+			], { duration: 300, easing: 'linear' }); // animate the height property
+			a.finished.then(() => {
+				el.style.height = '0'; // set the height to 0
+				done(); // call the done function
+			});
+		}
+
+		const onBeforeExit = (el: any) => {
+			const a = ''
+		}
+
 		const className = `p-toggleable-content ${tab.contentClassName || ''} ${tab.className || ''}`;
 		return (
-			<Show when={selected} keyed>
-				<div id={contentId} class={className} style={style} role="region" aria-labelledby={ariaLabelledby}>
-					<div class="p-accordion-content">{tab.children}</div>
-				</div>
-			</Show>
+			<Transition appear onEnter={onEnter} onExit={onExit} onBeforeExit={onBeforeExit}>
+				<Show when={isSelected(index)}  keyed>
+					<div id={contentId} class={className} style={style} role="region" aria-labelledby={ariaLabelledby}>
+						<div class="p-accordion-content">{tab.children}</div>
+					</div>
+				</Show>
+				{/*{isSelectedTab() && <div class="p-accordion-content">{tab.children}</div>}*/}
+			</Transition>
 
 		)
 	}
@@ -111,13 +164,13 @@ export const Accordion = (input: IAccordionProps) => {
 	const createTab = (tab: any, index: number) => {
 		const tabClassList = {
 			'p-accordion-tab': true,
-			'p-accordion-tab-active': isSelected(index) as boolean
+			'p-accordion-tab-active': false
 		}
 
 		return (
 			<div classList={tabClassList}>
-				{createTabHeader(tab, isSelected(index) as boolean, index)}
-				{createTabContent(tab, isSelected(index) as boolean, index)}
+				{createTabHeader(tab, false, index)}
+				{createTabContent(tab, false, index)}
 			</div>
 		)
 	}
@@ -138,9 +191,25 @@ export const Accordion = (input: IAccordionProps) => {
 		'p-component': true,
 	}
 
+	const tabClassList = {
+		'p-accordion-tab': true,
+		'p-accordion-tab-active': false
+	}
 	return (
 		<div id={idState() as string} classList={className} style={props.style ? props.style : ''}>
-			{createTabs()}
+			<For each={childrenArray}>
+				{(tab: any, index) => {
+					console.log('index', index());
+					console.log('activeIndexState', activeIndexState());
+					console.log('activeIndexState boolean', activeIndexState() === index());
+					return (
+						<div classList={tabClassList}>
+							{createTabHeader(tab, false, index())}
+							{createTabContent(tab, false, index())}
+						</div>
+					)
+				}}
+			</For>
 		</div>
 	);
 }
