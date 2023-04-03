@@ -22,6 +22,14 @@ export interface IButtonProps {
 	loading?: boolean
 
 	severity?: string
+
+	raised?: boolean
+
+	rounded?: boolean
+
+	text?: boolean
+
+	outlined?: boolean
 }
 
 

@@ -12,7 +12,6 @@ export const ButtonLoading = () => {
 	`;
 
 	const expandedButtonCode = `
-		import React, { useState } from "react";
 		import { Button } from '@solid-ui/solid-elements';
 		
 		export default function LoadingDemo() {

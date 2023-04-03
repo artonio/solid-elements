@@ -8,6 +8,12 @@ import { ButtonDisabled } from '@/pages/Button/ButtonDisabled';
 import { ButtonIcon } from '@/pages/Button/ButtonIcon';
 import { ButtonLoading } from '@/pages/Button/ButtonLoading';
 import { ButtonSeverity } from '@/pages/Button/ButtonSeverity';
+import { ButtonRaised } from '@/pages/Button/ButtonRaised';
+import { ButtonRounded } from '@/pages/Button/ButtonRounded';
+import { ButtonText } from '@/pages/Button/ButtonText';
+import { ButtonRaisedText } from '@/pages/Button/ButtonRaisedText';
+import { ButtonOutlined } from '@/pages/Button/ButtonOutlined';
+import { ButtonIconOnly } from '@/pages/Button/ButtonIconOnly';
 
 export const ButtonPage: Component<any> = () => {
 	let articleRef!: HTMLDivElement;
@@ -56,6 +62,12 @@ export const ButtonPage: Component<any> = () => {
 					<ButtonIcon />
 					<ButtonLoading />
 					<ButtonSeverity />
+					<ButtonRaised />
+					<ButtonRounded />
+					<ButtonText />
+					<ButtonRaisedText />
+					<ButtonOutlined />
+					<ButtonIconOnly />
 				</div>
 			</div>
 			<div class="app-right-sidebar">
@@ -67,6 +79,12 @@ export const ButtonPage: Component<any> = () => {
 					<li><a href="#icons">Icons</a></li>
 					<li><a href="#loading">Loading</a></li>
 					<li><a href="#severity">Severity</a></li>
+					<li><a href="#raised">Raised</a></li>
+					<li><a href="#rounded">Rounded</a></li>
+					<li><a href="#text">Text</a></li>
+					<li><a href="#raised-text">Raised Text</a></li>
+					<li><a href="#outlined">Outlined</a></li>
+					<li><a href="#icon-only">Icon Only</a></li>
 				</ul>
 			</div>
 		</>
