@@ -20,27 +20,6 @@ export interface AccordionTabHeaderProps {
 	index: number;
 }
 
-// export const AccordionTabHeader = (props: AccordionTabHeaderProps) => {
-// 	const classList = {
-// 		'p-accordion-header': true,
-// 		'p-highlight': isSelected(index) as boolean,
-// 		'p-disabled': tab.disabled
-// 	}
-// 	const className = `${tab.headerClassName || ''} ${tab.className || ''}`;
-// 	const tabIndex = tab.disabled ? -1 : tab.tabIndex;
-// 	const headerId = idState() + '_header_' + index;
-// 	const ariaControls = idState + '_content_' + index;
-// 	// const label = selected ? ariaLabel('collapseLabel') : ariaLabel('expandLabel');
-// 	return (
-// 		<div classList={classList} class={className}>
-// 			<a href={'#' + ariaControls} id={headerId} class="p-accordion-header-link" aria-controls={ariaControls} role="tab" aria-expanded={selected} onClick={(e) => onTabHeaderClick(e, tab, index)} tabIndex={tabIndex} aria-label="TODO">
-// 				{/*{icon}*/}
-// 				<span class="p-accordion-header-text">{tab.header}</span>
-// 			</a>
-// 		</div>
-// 	)
-// }
-
 export interface IAccordionTabContentProps {
 	tab: any;
 	selected: boolean;
