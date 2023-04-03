@@ -2,7 +2,7 @@ import "./Button.css";
 import { ButtonBaseProps } from './ButtonBase';
 import { JSX, mergeProps } from 'solid-js';
 export interface IButtonProps {
-	label: string;
+	label?: string;
 	onClick?: () => void;
 
 	link?: boolean
@@ -14,6 +14,14 @@ export interface IButtonProps {
 	ref?: any
 
 	children?: any
+
+	icon?: any
+
+	iconPos?: string
+
+	loading?: boolean
+
+	severity?: string
 }
 
 
@@ -26,9 +34,10 @@ export const Button = (input: IButtonProps) => {
 		const className =  {
 			'p-button-icon p-c': true,
 			'p-button-loading-icon': props.loading,
-			[`p-button-icon-${props.iconPos}`]: !!props.label
+			[`p-button-icon-${props.iconPos}`]: !!props.label,
+			[icon]: true
 		};
-		return icon && <span classList={className}>{icon}</span>;
+		return icon && <span classList={className}></span>;
 	};
 
 
@@ -50,13 +59,37 @@ export const Button = (input: IButtonProps) => {
 		return null;
 	};
 
+	const sizeMapping = {
+		large: 'lg',
+		small: 'sm'
+	};
+
+	const size = () => {
+		if (props.size) {
+			return sizeMapping[props.size];
+		}
+
+		return null;
+	}
+
 	return (
 		<button ref={props.ref} classList={{
 			'p-button': true,
 			'p-component': true,
-			'p-highlight': props.highlight,
+			'p-button-icon-only': (props.icon || (props.loading && props.loadingIcon)) && !props.label && !props.children,
+			'p-button-vertical': (props.iconPos === 'top' || props.iconPos === 'bottom') && props.label,
+			'p-button-loading': props.loading,
+			'p-button-outlined': props.outlined,
+			'p-button-raised': props.raised,
 			'p-button-link': props.link,
-			'p-disabled': props.disabled
+			'p-button-text': props.text,
+			'p-button-rounded': props.rounded,
+			'p-highlight': props.highlight,
+			'p-disabled': props.disabled,
+			'p-button-loading-label-only': props.loading && !props.icon && props.label,
+			[`p-button-loading-${props.iconPos}`]: !!(props.loading && props.loadingIcon && props.label),
+			[`p-button-${props.severity}`]: !!props.severity,
+			[`p-button-${size()}`]: !!size(),
 		}} onClick={props.onClick}>
 			{createIcon()}
 			{createLabel()}

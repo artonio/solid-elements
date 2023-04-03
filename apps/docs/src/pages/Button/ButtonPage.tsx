@@ -2,6 +2,12 @@ import { Component, onCleanup, onMount } from 'solid-js';
 import { CodeHighlighter } from '@/components/CodeHighlighter';
 import { v4 as uuidv4 } from 'uuid';
 import { Button } from '@solid-ui/solid-elements/src/components/Button/Button';
+import { ButtonBasic } from '@/pages/Button/ButtonBasic';
+import { ButtonLink } from '@/pages/Button/ButtonLink';
+import { ButtonDisabled } from '@/pages/Button/ButtonDisabled';
+import { ButtonIcon } from '@/pages/Button/ButtonIcon';
+import { ButtonLoading } from '@/pages/Button/ButtonLoading';
+import { ButtonSeverity } from '@/pages/Button/ButtonSeverity';
 
 export const ButtonPage: Component<any> = () => {
 	let articleRef!: HTMLDivElement;
@@ -44,33 +50,23 @@ export const ButtonPage: Component<any> = () => {
 					<CodeHighlighter language="tsx" id={uuidv4()}>
 						{importButtonCode}
 					</CodeHighlighter>
-					<div class="s-card">
-						<Button label="Submit" />
-					</div>
-					<CodeHighlighter language="tsx" id={uuidv4()}>
-						{buttonSourceCode}
-					</CodeHighlighter>
-					<h2 id="link">Link</h2>
-					<div class="s-card">
-						<Button label="Submit" link/>
-					</div>
-					<CodeHighlighter language="tsx" id={uuidv4()}>
-						{buttonLinkSourceCode}
-					</CodeHighlighter>
-					<h2 id="disabled">Disabled</h2>
-					<div class="s-card">
-						<Button label="Submit" disabled/>
-					</div>
-					<CodeHighlighter language="tsx" id={uuidv4()}>
-						{buttonDisabledSourceCode}
-					</CodeHighlighter>
+					<ButtonBasic />
+					<ButtonLink />
+					<ButtonDisabled />
+					<ButtonIcon />
+					<ButtonLoading />
+					<ButtonSeverity />
 				</div>
 			</div>
 			<div class="app-right-sidebar">
 				<ul>
 					<li><a href="#import">Import</a></li>
+					<li><a href="#basic">Basic</a></li>
 					<li><a href="#link">Link</a></li>
 					<li><a href="#disabled">Disabled</a></li>
+					<li><a href="#icons">Icons</a></li>
+					<li><a href="#loading">Loading</a></li>
+					<li><a href="#severity">Severity</a></li>
 				</ul>
 			</div>
 		</>
