@@ -5,6 +5,7 @@ import {v4 as uuidv4} from "uuid";
 import {BasicAccordion} from "@/pages/Accordion/BasicAccordion";
 import {AccordionMultiple} from "@/pages/Accordion/AccordionMultiple";
 import {AccordionDisabled} from "@/pages/Accordion/AccordionDisabled";
+import {AccordionTemplate} from "@/pages/Accordion/AccordionTemplate";
 
 export const AccordionPage = () => {
 	let articleRef!: HTMLDivElement;
@@ -40,6 +41,7 @@ export const AccordionPage = () => {
 					<BasicAccordion/>
 					<AccordionMultiple/>
 					<AccordionDisabled/>
+					<AccordionTemplate/>
 				</div>
 			</div>
 			<div class="app-right-sidebar">
@@ -48,6 +50,7 @@ export const AccordionPage = () => {
 					<li><a href="#basic">Basic</a></li>
 					<li><a href="#multiple">Multiple</a></li>
 					<li><a href="#disabled">Disabled</a></li>
+					<li><a href="#template">Template</a></li>
 				</ul>
 			</div>
 		</>
