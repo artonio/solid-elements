@@ -4,6 +4,7 @@ import {CodeHighlighter} from "@/components/CodeHighlighter";
 import {v4 as uuidv4} from "uuid";
 import {BasicAccordion} from "@/pages/Accordion/BasicAccordion";
 import {AccordionMultiple} from "@/pages/Accordion/AccordionMultiple";
+import {AccordionDisabled} from "@/pages/Accordion/AccordionDisabled";
 
 export const AccordionPage = () => {
 	let articleRef!: HTMLDivElement;
@@ -26,6 +27,8 @@ export const AccordionPage = () => {
 	onCleanup(() => {
 		window.removeEventListener('resize', onResize);
 	});
+
+
 	return (
 		<>
 			<div class="app-main-content">
@@ -36,7 +39,7 @@ export const AccordionPage = () => {
 					</CodeHighlighter>
 					<BasicAccordion/>
 					<AccordionMultiple/>
-
+					<AccordionDisabled/>
 				</div>
 			</div>
 			<div class="app-right-sidebar">
