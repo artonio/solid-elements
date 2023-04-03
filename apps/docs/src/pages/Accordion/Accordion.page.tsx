@@ -3,6 +3,7 @@ import { Accordion, AccordionTab } from '@solid-ui/solid-elements/src/components
 import {CodeHighlighter} from "@/components/CodeHighlighter";
 import {v4 as uuidv4} from "uuid";
 import {BasicAccordion} from "@/pages/Accordion/BasicAccordion";
+import {AccordionMultiple} from "@/pages/Accordion/AccordionMultiple";
 
 export const AccordionPage = () => {
 	let articleRef!: HTMLDivElement;
@@ -34,13 +35,15 @@ export const AccordionPage = () => {
 						{importAccordionCode}
 					</CodeHighlighter>
 					<BasicAccordion/>
+					<AccordionMultiple/>
 
 				</div>
 			</div>
 			<div class="app-right-sidebar">
 				<ul>
 					<li><a href="#import">Import</a></li>
-					<li><a href="#link">Link</a></li>
+					<li><a href="#basic">Basic</a></li>
+					<li><a href="#multiple">Multiple</a></li>
 					<li><a href="#disabled">Disabled</a></li>
 				</ul>
 			</div>

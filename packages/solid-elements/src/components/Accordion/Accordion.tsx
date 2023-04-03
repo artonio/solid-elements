@@ -77,7 +77,7 @@ export const Accordion = (input: IAccordionProps) => {
 
 	const isSelected = (index: number) => {
 		const r =  props.multiple ? activeIndex() && (activeIndex() as number[]).some((i: number) => i === index) : activeIndex() === index;
-		console.log('isSelected', r);
+		// console.log('isSelected', r);
 		return r;
 	}
 
