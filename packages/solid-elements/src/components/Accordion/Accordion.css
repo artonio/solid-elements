@@ -1,3 +1,42 @@
+.p-toggleable-content-enter {
+    height: 0;
+}
+
+.p-toggleable-content-enter-active {
+    overflow: hidden;
+    max-height: 1000px;
+    transition: max-height 10s cubic-bezier(0, 1, 0, 1);
+}
+
+.p-toggleable-content-enter-done {
+    /*transform: none;*/
+    /*overflow: hidden;*/
+    /*max-height: 1000px;*/
+    /*transition: max-height 10s linear;*/
+}
+
+.p-toggleable-content-exit {
+    max-height: 1000px;
+    background-color: red;
+}
+
+.p-toggleable-content-exit-to {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 5s cubic-bezier(0, 1, 0, 1);
+}
+.slide-fade-enter-active,
+.slide-fade-exit-active {
+    transition: opacity 0.3s, transform 0.3s;
+}
+.slide-fade-enter,
+.slide-fade-exit-to {
+    transform: translateX(10px);
+    opacity: 0;
+}
+.slide-fade-enter {
+    transform: translateX(-10px);
+}
 .p-accordion-header-link {
     cursor: pointer;
     display: flex;
