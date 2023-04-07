@@ -1,3 +1,4 @@
+import "../../index.scss";
 import { createEffect, createSignal, For, mergeProps, on } from 'solid-js';
 import ObjectUtils from '../utils/ObjectUtils';
 import { SelectButtonItem } from './SelectButtonItem';
@@ -177,7 +178,7 @@ export const SelectButton = (initProps: ISelectButtonProps) => {
 
 	return (
 		<>
-			<div ref={props.ref} classList={{'s-select-button': true, 's-button-set': true, 's-component': true}} role="group">
+			<div ref={props.ref} classList={{'p-selectbutton': true, 'p-buttonset': true, 'p-component': true}} role="group">
 				<For each={props.options}>
 					{(option: SelectItem | any) => {
 						return <SelectButtonItem label={getOptionLabel(option)}

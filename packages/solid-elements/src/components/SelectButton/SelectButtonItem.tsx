@@ -1,3 +1,4 @@
+import "../../index.scss";
 import { SelectItem } from './SelectButton';
 import { Button } from '../Button';
 import { createEffect } from 'solid-js';
